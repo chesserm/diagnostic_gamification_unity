@@ -4,8 +4,10 @@ using System.Globalization;
 using UnityEngine;
 using System.Net;
 using System;
+using System.Runtime;
 using System.IO;
-using Assets;
+//using Assets;
+using System.Runtime.Serialization;
 
 public class Player : MonoBehaviour
 {
@@ -17,7 +19,7 @@ public class Player : MonoBehaviour
 	{
 		get { return PlayerPrefs.GetInt("Experience"); }
 	}
-	int NextCase;
+	int NextCase
 	{
 		get { return PlayerPrefs.GetInt("NextCase"); }
 	}
@@ -27,20 +29,20 @@ public class Player : MonoBehaviour
 	}
 	string ExpLevel
 	{
-		get { return PlayerPrefs.GetInt("ExpLevel"); }
+		get { return PlayerPrefs.GetString("ExpLevel"); }
 	}
 
 // Start is called before the first frame update
 void Start()
     {
 		// if player prefs hasnt been populated initialize the values
-		if(!playerPref.HasKey("NumCoins"))
+		if(!PlayerPrefs.HasKey("NumCoins"))
         {
 			PlayerPrefs.SetInt("NumCoins", 0);
 			PlayerPrefs.SetInt("Experience", 0);
 			PlayerPrefs.SetInt("NextCase", 0);
 			PlayerPrefs.SetInt("total_correct", 0);
-			PlayerPrefs.SetString("ExpLevel", undergrad);
+			PlayerPrefs.SetString("ExpLevel", "undergrad");
 		}
 	}
 
@@ -56,20 +58,20 @@ void Start()
 		PlayerPrefs.SetInt("NextCase", NextCase + 1);
 	}
 
-	private BlockStats get_blockstats()
-	{
-		//replace X with our api url
-		HttpWebRequest request = (HttpWebRequest)WebRequest.Create(String.Format("X?id={0}", blockId));
-		HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-		StreamReader reader = new StreamReader(response.GetResponseStream());
-		string jsonResponse = reader.ReadToEnd();
-		BlockStats info = JsonUtility.FromJson<BlockStats>(jsonResponse);
-		return info;
-	}
+	//private BlockStats get_blockstats()
+	//{
+	//	//replace X with our api url
+	//	HttpWebRequest request = (HttpWebRequest)WebRequest.Create(String.Format("X?id={0}", blockId));
+	//	HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+	//	StreamReader reader = new StreamReader(response.GetResponseStream());
+	//	string jsonResponse = reader.ReadToEnd();
+	//	BlockStats info = JsonUtility.FromJson<BlockStats>(jsonResponse);
+	//	return info;
+	//}
 
 }
 
-[serializable]
+[System.Serializable]
 public class BlockStats
 {
 	public int startingIndex { get; set; }
