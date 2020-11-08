@@ -27,6 +27,15 @@ EditorBuildSettings:
     path: Assets/Scenes/PlayInvestigate.unity
     guid: 8cc68c6f3b3630f4bbc51abae4cb8ca5
   - enabled: 1
+    path: Assets/Scenes/PlaySymptomList.unity
+    guid: 30cdbe559955bb44aa77833a0258a8d0
+  - enabled: 1
+    path: Assets/Scenes/PlaySymptomData.unity
+    guid: 6b7ae023176bcdf49b00d9bb3882d9e5
+  - enabled: 1
+    path: Assets/Scenes/PlayReasoning.unity
+    guid: dcc5030ba1ed3bf4caf08b97227e3931
+  - enabled: 1
     path: Assets/Scenes/PlayDiagnose.unity
     guid: a11f51874bc6f2b439cc5fcaa6e6088a
   - enabled: 1
