@@ -20,4 +20,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Play.unity
     guid: 9e088fbce0dd1a94983ff7f6f53bccec
+  - enabled: 1
+    path: Assets/Scenes/PlayMain.unity
+    guid: 1f13bcdaf669a3e40aaa2594b87b2084
+  - enabled: 1
+    path: Assets/Scenes/PlayInvestigate.unity
+    guid: 8cc68c6f3b3630f4bbc51abae4cb8ca5
+  - enabled: 1
+    path: Assets/Scenes/PlayDiagnose.unity
+    guid: a11f51874bc6f2b439cc5fcaa6e6088a
   m_configObjects: {}
