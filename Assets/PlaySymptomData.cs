@@ -8,7 +8,7 @@ public class PlaySymptomData : MonoBehaviour
     #region EventHandlers
 
     // Function to Continue to Reasoning Page
-    public void BackButtonhandler()
+    public void ContinueButtonHandler()
     {
         SceneManager.LoadScene("PlayReasoning");
     }

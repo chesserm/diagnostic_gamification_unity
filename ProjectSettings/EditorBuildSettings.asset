@@ -24,9 +24,6 @@ EditorBuildSettings:
     path: Assets/Scenes/PlayMain.unity
     guid: 1f13bcdaf669a3e40aaa2594b87b2084
   - enabled: 1
-    path: Assets/Scenes/PlayInvestigate.unity
-    guid: 8cc68c6f3b3630f4bbc51abae4cb8ca5
-  - enabled: 1
     path: Assets/Scenes/PlaySymptomList.unity
     guid: 30cdbe559955bb44aa77833a0258a8d0
   - enabled: 1

@@ -27,7 +27,7 @@ public class PlayMain : MonoBehaviour
     // Function to go to Investigate page
     public void InvestigateButtonHandler()
     {
-        SceneManager.LoadScene("PlayInvestigate");
+        SceneManager.LoadScene("PlaySymptomList");
     }
 
     #endregion 
