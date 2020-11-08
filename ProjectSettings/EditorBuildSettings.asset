@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PlayDiagnose.unity
     guid: a11f51874bc6f2b439cc5fcaa6e6088a
+  - enabled: 1
+    path: Assets/Scenes/PlaySummary.unity
+    guid: f0b6d3ed1936c15409ff80b5d9319821
   m_configObjects: {}
