@@ -31,6 +31,10 @@ public class Player : MonoBehaviour
 	{
 		get { return PlayerPrefs.GetString("ExpLevel"); }
 	}
+	string Block
+    {
+		get { return PlayerPrefs.GetString("CurrentBlock"); }
+	}
 
 // Start is called before the first frame update
 void Start()
@@ -43,19 +47,47 @@ void Start()
 			PlayerPrefs.SetInt("NextCase", 0);
 			PlayerPrefs.SetInt("total_correct", 0);
 			PlayerPrefs.SetString("ExpLevel", "undergrad");
+			BlockStats firstBlock = new BlockStats();
+			PlayerPrefs.SetString("CurrentBlock", JsonUtility.ToJson(firstBlock));
 		}
 	}
 
-    // Update is called once per frame
-    void Update()
+	public void CompleteCase(int coins, int xp, char casetype, bool correct)
     {
-        
-    }
-	public void CompleteCase(int coins, int xp)
-    {
-		PlayerPrefs.SetInt("NumCoins", NumCoins + coins);
-		PlayerPrefs.SetInt("Experience", Experience + xp);
-		PlayerPrefs.SetInt("NextCase", NextCase + 1);
+		PlayerPrefs.SetInt("NumCoins", this.NumCoins + coins);
+		PlayerPrefs.SetInt("Experience", this.Experience + xp);
+		PlayerPrefs.SetInt("NextCase", this.NextCase + 1);
+
+		BlockStats CurrentBlock = JsonUtility.FromJson<BlockStats>(this.Block);
+		if (casetype == 'c')
+		{
+			CurrentBlock.COPD++;
+			if (correct) CurrentBlock.COPDCorrect++;
+		}
+		if (casetype == 'h')
+		{
+			CurrentBlock.CHF++;
+			if (correct) CurrentBlock.CHFCorrect++;
+		}
+		if (casetype == 'p')
+		{
+			CurrentBlock.Pneumonia++;
+			if (correct) CurrentBlock.PneumoniaCorrect++;
+		}
+		if (NextCase % 10 == 0)
+        {
+			string key = "block" + (NextCase / 10);
+			PlayerPrefs.SetString( key, JsonUtility.ToJson(CurrentBlock));
+			UnityEngine.Debug.Log(key);
+			UnityEngine.Debug.Log(PlayerPrefs.GetString(key));
+			CurrentBlock = new BlockStats();
+        }
+		PlayerPrefs.SetString("CurrentBlock", JsonUtility.ToJson(CurrentBlock));
+	}
+
+	public void callplayercomplete()
+	{
+		this.CompleteCase(10, 10, 'c', true);
 	}
 
 	//private BlockStats get_blockstats()
@@ -74,11 +106,11 @@ void Start()
 [System.Serializable]
 public class BlockStats
 {
-	public int startingIndex { get; set; }
-	public int COPD { get; set; }
-	public int COPDCorrect { get; set; }
-	public int CHF { get; set; }
-	public int CHFCorrect { get; set; }
-	public int Pneumonia { get; set; }
-	public int PneumoniaCorrect { get; set; }
+	public int COPD;
+	public int COPDCorrect;
+	public int CHF;
+	public int CHFCorrect;
+	public int Pneumonia;
+	public int PneumoniaCorrect;
+
 }
