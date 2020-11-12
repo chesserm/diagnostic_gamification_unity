@@ -75,7 +75,7 @@ namespace HelperNamespace
         public String CXRThoughts;
         public String Narratives;
 
-        public String Hard;
+        public String Difficulty;
 
         public String CXRLink;
 
