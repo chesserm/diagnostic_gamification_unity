@@ -1,54 +1,86 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using UnityEngine;
 using System;
 
-public class PatientData
+
+
+namespace HelperNamespace
 {
-    #region DataProperties
-    // 12 values in initial presentation data
-    public List<string> InitialData { get; set; }
-
-    // General Exam information
-    public List<String> GeneralExamData { get; set; }
-
-    // Head Exam Information
-    public String HeadData { get; set; }
-
-    // Neck Exam Information
-    public String NeckData { get; set; }
-
-    // Lung Exam Information
-    public String LungData { get; set; }
-
-    // Extremities Exam Information
-    public String ExtremitiesData { get; set; }
-
-    // Skin Exam Information
-    public String SkinData { get; set; }
-
-    // Abdomen Exam Information
-    public String AbdomenData { get; set; }
-
-    // Oxygen Exam Information (2 values)
-    public List<String> OxygenData { get; set; }
-
-    // 16 values in bloodwork
-    public List<double> BloodworkData { get; set; }
-
-    // XRayImage
-    public Texture2D XRayImage;
-
-    // Diagnosis
-    public DiagnosisState Diagnosis { get; set; }
-
-    #endregion
-
-    // Default constructor
-    public PatientData()
+    [System.Serializable]
+    public class PatientData
     {
+        /* ******************************************
+         *  !!! DO NOT CHANGE ORDER OF VARIABLES !!!
+         *      - Dependent on API response format
+         * ******************************************
+        */
+
+        public String _id;
+
+        public int CaseID;
+
+        public int Age;
+
+        public String Gender;
+
+        public String PastMedHistory1;
+        public String PastMedHistory2;
+        public String PastMedHistory3;
+
+        public String TobaccoUse;
+        public String SymptomOnset;
+        public String ProvocatingFactors;
+        public String SymptomDescription;
+
+        public double Temperature;
+        public double HeartRate;
+        public double RespiratoryRate;
+        public String BloodPressure;
+
+        public String OxygenSat;
+        public String OxygenAmount;
+
+        public String ExamGeneral;
+        public String ExamHead;
+        public String ExamNeck;
+        public String ExamHeart;
+        public String ExamLungs;
+        public String ExamAbdomen;
+        public String ExamExtremities;
+        public String ExamSkin;
+
+        public double BloodWBC;
+        public double BloodHemoglobin;
+        public double BloodHemacrotit;
+        public double BloodPlatelets;
+        public double BloodSodium;
+        public double BloodPotassium;
+        public double BloodChloride;
+        public double BloodBicarbonate;
+        public double BloodBUN;
+        public double BloodCreatinine;
+        public double BloodGlucose;
+        public double BloodBNP;
+        public double BloodABG_ph;
+        public double BloodABG_pco2;
+        public double BloodABG_po2;
+        public double BloodLactate;
+
+        public String Diagnosis;
+
+        public String ExpertComments;
+        public String RedHerrings;
+        public String CXRThoughts;
+        public String Narratives;
+
+        public String Hard;
+
+        public String CXRLink;
+
+
 
     }
-
-
 }
+

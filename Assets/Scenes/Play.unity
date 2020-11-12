@@ -233,8 +233,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -177, y: 93.3}
-  m_SizeDelta: {x: 369.91663, y: 35.438263}
+  m_AnchoredPosition: {x: 2.4, y: 28.7}
+  m_SizeDelta: {x: 861.1505, y: 290.4039}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &312609629
 MonoBehaviour:
@@ -989,3 +989,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63ed810dfecab294aae3ed646d884340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  patientData:
+    _id: 
+    CaseID: 0
+    Age: 0
+    Gender: 
+    PastMedHistory1: 
+    PastMedHistory2: 
+    PastMedHistory3: 
+    TobaccoUse: 
+    SymptomOnset: 
+    ProvocatingFactors: 
+    SymptomDescription: 
+    Temperature: 0
+    HeartRate: 0
+    RespiratoryRate: 0
+    BloodPressure: 
+    OxygenSat: 
+    OxygenAmount: 
+    ExamGeneral: 
+    ExamHead: 
+    ExamNeck: 
+    ExamHeart: 
+    ExamLungs: 
+    ExamAbdomen: 
+    ExamExtremities: 
+    ExamSkin: 
+    BloodWBC: 0
+    BloodHemoglobin: 0
+    BloodHemacrotit: 0
+    BloodPlatelets: 0
+    BloodSodium: 0
+    BloodPotassium: 0
+    BloodChloride: 0
+    BloodBicarbonate: 0
+    BloodBUN: 0
+    BloodCreatinine: 0
+    BloodGlucose: 0
+    BloodBNP: 0
+    BloodABG_ph: 0
+    BloodABG_pco2: 0
+    BloodABG_po2: 0
+    BloodLactate: 0
+    Diagnosis: 
+    ExpertComments: 
+    RedHerrings: 
+    CXRThoughts: 
+    Narratives: 
+    Difficulty: 
+    CXRLink: 

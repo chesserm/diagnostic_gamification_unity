@@ -1,9 +1,14 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
+using System.IO;
+using System.Net;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+
+using HelperNamespace;
 
 public class Play : MonoBehaviour
 {
@@ -34,90 +39,31 @@ public class Play : MonoBehaviour
     // This is the function where the database access will happen
     public void getData()
     {
-        // Hardcoding values based upon one data record given
-        patientData = new PatientData();
+        patientData = get_patient_data();
+    }
 
-        #region InitialData
-        patientData.InitialData = new List<String>();
-        patientData.InitialData.Add("74"); // Age
-        patientData.InitialData.Add("male"); // Gender
-        patientData.InitialData.Add("heart failure"); // Past Med History 1
-        patientData.InitialData.Add("coronary artery disease"); // Past Med History 2
-        patientData.InitialData.Add("COPD"); // Past Med History 3
-        patientData.InitialData.Add("current"); // Tobacco Use
-        patientData.InitialData.Add("3 days"); // Onset of symptoms
-        patientData.InitialData.Add("constant"); // Duration of Symptoms
-        patientData.InitialData.Add("exertion"); // Provocating Factors
-        patientData.InitialData.Add("chest heaviness"); // Description of Symptoms
-        patientData.InitialData.Add("severe"); // Severity of Symptoms
-        patientData.InitialData.Add("none"); // Relieving Factors
 
-        #endregion
+    // Function to do API call
+    private PatientData get_patient_data()
+    {
+        //replace X with our api url
+        HttpWebRequest request = (HttpWebRequest)WebRequest.Create(String.Format("https://diagnostic-gamification-api.herokuapp.com/v1/cases/208"));
+        HttpWebResponse response = (HttpWebResponse) request.GetResponse();
+        StreamReader reader = new StreamReader(response.GetResponseStream());
+        string jsonResponse = reader.ReadToEnd();
+        UnityEngine.Debug.Log(jsonResponse);
+        
+        PatientData data = JsonUtility.FromJson<PatientData>(jsonResponse);
 
-        #region GeneralExamInfo
-
-        patientData.GeneralExamData = new List<String>();
-        patientData.GeneralExamData.Add("38.4"); // Temperature
-        patientData.GeneralExamData.Add("121"); // Heart Rate
-        patientData.GeneralExamData.Add("24"); // Respiratory Rate
-        patientData.GeneralExamData.Add("104/53"); // Blood Pressure
-        patientData.GeneralExamData.Add("awake, alert, oriented x 2"); // Observations
-
-        #endregion
-
-        #region OtherExamInfo
-
-        patientData.HeadData = "pupils equal and reactive, dry mucous membranes";
-        patientData.NeckData = "No jugular venous distention";
-        patientData.LungData = "Crackles in the right lung";
-        patientData.ExtremitiesData = "no edema";
-        patientData.SkinData = "warm, dry";
-        patientData.AbdomenData = "soft, nontender, nondistended";
-
-        #endregion
-
-        #region OxygenInfo
-        patientData.OxygenData = new List<String>();
-        patientData.OxygenData.Add("91%"); // oxygen saturation
-        patientData.OxygenData.Add("4 liters per minute"); // Amount of Oxygen received
-
-        #endregion
-
-        #region BloodworkData
-
-        patientData.BloodworkData = new List<double>();
-        patientData.BloodworkData.Add(14.2); // White blood cells
-        patientData.BloodworkData.Add(13.6); // Hemoglobin
-        patientData.BloodworkData.Add(40.1); // Hematocrit
-        patientData.BloodworkData.Add(247); // Platelets
-        patientData.BloodworkData.Add(137); // Sodium
-        patientData.BloodworkData.Add(4.2); // Potassium
-        patientData.BloodworkData.Add(104); // Chloride
-        patientData.BloodworkData.Add(21); // Bicarbonate
-        patientData.BloodworkData.Add(24); // BUN
-        patientData.BloodworkData.Add(1.6); // Creatinine
-        patientData.BloodworkData.Add(137); // Glucose
-        patientData.BloodworkData.Add(37); // BNP
-        patientData.BloodworkData.Add(7.35); // ABG - pH
-        patientData.BloodworkData.Add(39); // ABG - pCO2
-        patientData.BloodworkData.Add(71); // ABG - pO2
-        patientData.BloodworkData.Add(2.4); // Lactate
-
-        #endregion
-
-        // No image given for sample record
-        patientData.XRayImage = null;
-
-        // Making up diagnosis since one was not given
-        patientData.Diagnosis = DiagnosisState.Pneumonia;
-
-        return;
+        string myVariable = JsonUtility.ToJson(data);
+        UnityEngine.Debug.Log(data.Narratives);
+        return data;
     }
 
 
     public void DisplayData()
     {
-        ageText.text = "Age: " + patientData.InitialData[0];
+        ageText.text = "Narratives: " + patientData.Narratives;
     }
 
 
@@ -135,3 +81,4 @@ public class Play : MonoBehaviour
         DisplayData();
     }
 }
+
