@@ -55,3 +55,9 @@ TagManager:
   - name: Hat
     uniqueID: 1793324519
     locked: 0
+  - name: Head
+    uniqueID: 2328826119
+    locked: 0
+  - name: Face
+    uniqueID: 4090873603
+    locked: 0
