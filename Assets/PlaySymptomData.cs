@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using HelperNamespace;
 
 public class PlaySymptomData : MonoBehaviour
 {
@@ -19,7 +20,11 @@ public class PlaySymptomData : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
+        UnityEngine.Debug.Log("Inside Play Symptom Data");
+        UnityEngine.Debug.Log(InterSceneData.patient.Age);
+        InterSceneData.patient.Age = 99;
+        UnityEngine.Debug.Log(InterSceneData.patient.Age);
     }
 
     // Update is called once per frame
