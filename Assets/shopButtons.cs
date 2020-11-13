@@ -15,5 +15,6 @@ public class shopButtons : MonoBehaviour
             GetComponentInParent<Shop>().coins -= cost;
             GetComponentInParent<Shop>().addItem(itemName);
         }
+        // else popup a message that says not enough coins
     }
 }
