@@ -11,8 +11,7 @@ public class Customize : MonoBehaviour
     public List<bool> legoptions;
     public List<bool> faceoptions;
     public List<bool> bodyoptions;
-
-
+    
     
     public void ReturnToMainMenu()
     {
@@ -54,7 +53,12 @@ public class Customize : MonoBehaviour
 
     }
 
-
+    void OnDestroy()
+    {
+        // Save handler in playerprefs
+        string strHandler = JsonUtility.ToJson(handler);
+        PlayerPrefs.SetString("ShopItemHandler", strHandler);
+    }
 
     //SELECTOR 
     //body part we are changing 
@@ -97,6 +101,18 @@ public class Customize : MonoBehaviour
         }
         
         bodypart.sprite = options[currentOption];
+        if(bodypart.name == "head"){
+            handler.SetEquippedHead(currentOption + 1);
+        }
+        else if(bodypart.name == "leg"){
+            handler.SetEquippedLegs(currentOption + 1);
+        }
+        else if(bodypart.name == "face"){
+            handler.SetEquippedFace(currentOption + 1);
+        }
+        else{
+            handler.SetEquippedBody(currentOption + 1);
+        }
     }
 
     public void previousOption()
@@ -130,6 +146,18 @@ public class Customize : MonoBehaviour
         }
         
         bodypart.sprite = options[currentOption];
+        if(bodypart.name == "head"){
+            handler.SetEquippedHead(currentOption + 1);
+        }
+        else if(bodypart.name == "leg"){
+            handler.SetEquippedLegs(currentOption + 1);
+        }
+        else if(bodypart.name == "face"){
+            handler.SetEquippedFace(currentOption + 1);
+        }
+        else{
+            handler.SetEquippedBody(currentOption + 1);
+        }
 
     }
 }
