@@ -1630,7 +1630,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coins: 100
-  coinsText: {fileID: 0}
+  coinsText: {fileID: 2143411724}
   handler:
     Head01: 0
     Head02: 0

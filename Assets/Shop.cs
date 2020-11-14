@@ -54,7 +54,7 @@ public class Shop : MonoBehaviour
         }
         else
         {
-            coins = 0;
+            coins = 1000;
 
         }
         coinsText.text = coins.ToString();
