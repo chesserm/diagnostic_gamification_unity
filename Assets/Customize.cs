@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 using UnityEngine.SceneManagement;
 using System.Runtime.Serialization;
 
@@ -11,10 +12,14 @@ public class Customize : MonoBehaviour
     public List<bool> legoptions;
     public List<bool> faceoptions;
     public List<bool> bodyoptions;
+
+    public GameObject robotprefab;
     
     
     public void ReturnToMainMenu()
     {
+        Debug.Log("leaving safely");
+        
         SceneManager.LoadScene("MainMenu");
     }
 
@@ -117,6 +122,7 @@ public class Customize : MonoBehaviour
         else{
             handler.SetEquippedBody(currentOption + 1);
         }
+        PrefabUtility.SaveAsPrefabAsset(robotprefab, "Assets/robot.prefab");
     }
 
     public void previousOption()
@@ -162,6 +168,6 @@ public class Customize : MonoBehaviour
         else{
             handler.SetEquippedBody(currentOption + 1);
         }
-
+        PrefabUtility.SaveAsPrefabAsset(robotprefab, "Assets/robot.prefab");
     }
 }
