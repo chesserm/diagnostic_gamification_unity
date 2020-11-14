@@ -127,6 +127,99 @@ public class ShopItemHandler
         }
     }
 
+    public bool IsPurchased(string itemName)
+    {
+        if (itemName == "Head01")
+        {
+            return Head01;
+        }
+        else if (itemName == "Head02")
+        {
+            return Head02;
+        }
+        else if (itemName == "Body01")
+        {
+            return Body01;
+        }
+        else if (itemName == "Body02")
+        {
+            return Body02;
+        }
+        else if (itemName == "Body03")
+        {
+            return Body03;
+        }
+        else if (itemName == "Body04")
+        {
+            return Body04;
+        }
+        else if (itemName == "Body05")
+        {
+            return Body05;
+        }
+        else if (itemName == "Legs01")
+        {
+            return Legs01;
+        }
+        else if (itemName == "Legs02")
+        {
+            return Legs02;
+        }
+        else if (itemName == "Legs03")
+        {
+            return Legs03;
+        }
+        else if (itemName == "Legs04")
+        {
+            return Legs04;
+        }
+        else if (itemName == "Legs05")
+        {
+            return Legs05;
+        }
+        else if (itemName == "Face01")
+        {
+            return Face01;
+        }
+        else if (itemName == "Face02")
+        {
+            return Face02;
+        }
+        else if (itemName == "Face03")
+        {
+            return Face03;
+        }
+        else if (itemName == "Face04")
+        {
+            return Face04;
+        }
+        else if (itemName == "Face05")
+        {
+            return Face05;
+        }
+        else if (itemName == "BodyGrey")
+        {
+            return BodyGrey;
+        }
+        else if (itemName == "BodyBronze")
+        {
+            return BodyBronze;
+        }
+        else if (itemName == "BodySilver")
+        {
+            return BodySilver;
+        }
+        else if (itemName == "BodyGold")
+        {
+            return BodyGold;
+        }
+        else if (itemName == "BodyPlatinum")
+        {
+            return BodyPlatinum;
+        }
+        return true;
+    }
+
     public void SetEquippedHead(int headNum)
     {
         EquippedHead = headNum;

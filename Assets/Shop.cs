@@ -8,7 +8,7 @@ using System.Runtime.Serialization;
 public class Shop : MonoBehaviour
 {
     // Get coins from database
-    public int coins = 1000;
+    public int coins;
     public Text coinsText;
     public ShopItemHandler handler;
 
@@ -17,7 +17,6 @@ public class Shop : MonoBehaviour
         // Add item to playerprefs list if we can have one
         coinsText.text = coins.ToString();
         handler.PurchaseItem(item);
-        Debug.Log(item);
     }
 
     public void ReturnToMainMenu()
@@ -52,20 +51,14 @@ public class Shop : MonoBehaviour
         if (PlayerPrefs.HasKey("NumCoins"))
         {
             coins = PlayerPrefs.GetInt("NumCoins");
-            coins = 99999;
         }
         else
         {
-            coins = 99999;
+            coins = 0;
 
         }
+        coinsText.text = coins.ToString();
         Debug.Log(coins);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     void OnDestroy()
