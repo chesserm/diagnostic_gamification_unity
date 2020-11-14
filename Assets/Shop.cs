@@ -47,12 +47,14 @@ public class Shop : MonoBehaviour
         if (PlayerPrefs.HasKey("NumCoins"))
         {
             coins = PlayerPrefs.GetInt("NumCoins");
+            coins = 99999;
         }
         else
         {
             coins = 99999;
 
         }
+        Debug.Log(coins);
     }
 
     // Update is called once per frame

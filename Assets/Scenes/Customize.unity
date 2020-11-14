@@ -936,6 +936,13 @@ MonoBehaviour:
     BodySilver: 0
     BodyGold: 0
     BodyPlatinum: 0
+  headoptions: 
+  legoptions: 
+  faceoptions: 
+  bodyoptions: 
+  bodypart: {fileID: 0}
+  options: []
+  currentOption: 0
 --- !u!1 &594316775
 GameObject:
   m_ObjectHideFlags: 0
@@ -984,9 +991,36 @@ MonoBehaviour:
   m_GameObject: {fileID: 594316775}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3139ba28794b64d16949715228fcb494, type: 3}
+  m_Script: {fileID: 11500000, guid: 26dbfda7eaee95f4bbbd76ba3cefb0e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  handler:
+    Head01: 0
+    Head02: 0
+    Body01: 0
+    Body02: 0
+    Body03: 0
+    Body04: 0
+    Body05: 0
+    Legs01: 0
+    Legs02: 0
+    Legs03: 0
+    Legs04: 0
+    Legs05: 0
+    Face01: 0
+    Face02: 0
+    Face03: 0
+    Face04: 0
+    Face05: 0
+    BodyGrey: 0
+    BodyBronze: 0
+    BodySilver: 0
+    BodyGold: 0
+    BodyPlatinum: 0
+  headoptions: 
+  legoptions: 
+  faceoptions: 
+  bodyoptions: 
   bodypart: {fileID: 1523151242}
   options:
   - {fileID: 21300000, guid: 3294a6f7170004f199733c0904106e3e, type: 3}
@@ -1043,13 +1077,40 @@ MonoBehaviour:
   m_GameObject: {fileID: 629181778}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3139ba28794b64d16949715228fcb494, type: 3}
+  m_Script: {fileID: 11500000, guid: 26dbfda7eaee95f4bbbd76ba3cefb0e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  handler:
+    Head01: 0
+    Head02: 0
+    Body01: 0
+    Body02: 0
+    Body03: 0
+    Body04: 0
+    Body05: 0
+    Legs01: 0
+    Legs02: 0
+    Legs03: 0
+    Legs04: 0
+    Legs05: 0
+    Face01: 0
+    Face02: 0
+    Face03: 0
+    Face04: 0
+    Face05: 0
+    BodyGrey: 0
+    BodyBronze: 0
+    BodySilver: 0
+    BodyGold: 0
+    BodyPlatinum: 0
+  headoptions: 
+  legoptions: 
+  faceoptions: 
+  bodyoptions: 
   bodypart: {fileID: 2116898990}
   options:
-  - {fileID: 21300000, guid: 27701172cc0826741b2e40cc198f31e5, type: 3}
-  - {fileID: 21300000, guid: fd7baee702558354598947b3de2cb0a6, type: 3}
+  - {fileID: 21300000, guid: 845cf1a075cd0744ba12598eac2e6adb, type: 3}
+  - {fileID: 21300000, guid: 22286412b6d66ad4c93c41ad0afffb4e, type: 3}
   currentOption: 0
 --- !u!1 &720027517
 GameObject:
@@ -3065,16 +3126,43 @@ MonoBehaviour:
   m_GameObject: {fileID: 1842810693}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3139ba28794b64d16949715228fcb494, type: 3}
+  m_Script: {fileID: 11500000, guid: 26dbfda7eaee95f4bbbd76ba3cefb0e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  handler:
+    Head01: 0
+    Head02: 0
+    Body01: 0
+    Body02: 0
+    Body03: 0
+    Body04: 0
+    Body05: 0
+    Legs01: 0
+    Legs02: 0
+    Legs03: 0
+    Legs04: 0
+    Legs05: 0
+    Face01: 0
+    Face02: 0
+    Face03: 0
+    Face04: 0
+    Face05: 0
+    BodyGrey: 0
+    BodyBronze: 0
+    BodySilver: 0
+    BodyGold: 0
+    BodyPlatinum: 0
+  headoptions: 
+  legoptions: 
+  faceoptions: 
+  bodyoptions: 
   bodypart: {fileID: 1345830082}
   options:
-  - {fileID: 21300000, guid: c973d668dc09520419716ac5e3ba4f62, type: 3}
-  - {fileID: 21300000, guid: 6a7037640f4803d47a700be9446507e6, type: 3}
-  - {fileID: 21300000, guid: 4ee361a11a6487443bbfbe6a0991c959, type: 3}
-  - {fileID: 21300000, guid: 060248c44394238418df0e8881cdd01a, type: 3}
-  - {fileID: 21300000, guid: 2622e6bab2c437e448f11de790d5abff, type: 3}
+  - {fileID: 21300000, guid: e4888a029af2bf94e88723ef3f88373a, type: 3}
+  - {fileID: 21300000, guid: 968d0dec062283c43895c3975d528f3a, type: 3}
+  - {fileID: 21300000, guid: b0653c871d9c3014286bd4b70c3d19a0, type: 3}
+  - {fileID: 21300000, guid: 3ddb7edbbea801d46b71b134fca40558, type: 3}
+  - {fileID: 21300000, guid: ef91f46b9e042174baaf22d38c373a57, type: 3}
   currentOption: 0
 --- !u!1 &1899220625
 GameObject:
@@ -3384,16 +3472,43 @@ MonoBehaviour:
   m_GameObject: {fileID: 2009960245}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3139ba28794b64d16949715228fcb494, type: 3}
+  m_Script: {fileID: 11500000, guid: 26dbfda7eaee95f4bbbd76ba3cefb0e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  handler:
+    Head01: 0
+    Head02: 0
+    Body01: 0
+    Body02: 0
+    Body03: 0
+    Body04: 0
+    Body05: 0
+    Legs01: 0
+    Legs02: 0
+    Legs03: 0
+    Legs04: 0
+    Legs05: 0
+    Face01: 0
+    Face02: 0
+    Face03: 0
+    Face04: 0
+    Face05: 0
+    BodyGrey: 0
+    BodyBronze: 0
+    BodySilver: 0
+    BodyGold: 0
+    BodyPlatinum: 0
+  headoptions: 
+  legoptions: 
+  faceoptions: 
+  bodyoptions: 
   bodypart: {fileID: 1441336578}
   options:
-  - {fileID: 21300000, guid: 441489e5134b1ec478cd6817f72437cb, type: 3}
-  - {fileID: 21300000, guid: 3e909963751392f4193bdd4edc08a39e, type: 3}
-  - {fileID: 21300000, guid: c0123d61836f33540bf27a4fc442e65d, type: 3}
-  - {fileID: 21300000, guid: a763214e778de554fa435ed0bdd1bb66, type: 3}
-  - {fileID: 21300000, guid: 1b6a0fa1f6660da4bbb3e3c2e4ba9fc3, type: 3}
+  - {fileID: 21300000, guid: 10c0e1b24ba53cc4f9306f4b63911a86, type: 3}
+  - {fileID: 21300000, guid: 2c5ce9f89335d894a8c41bb226e3487c, type: 3}
+  - {fileID: 21300000, guid: 53918f49614362043ab9d6958c16eaf5, type: 3}
+  - {fileID: 21300000, guid: b868920d34a522d4c8110af92473f6a0, type: 3}
+  - {fileID: 21300000, guid: 8765dd2f6f53784438bd48741b8f91fe, type: 3}
   currentOption: 0
 --- !u!1 &2012338981
 GameObject:
