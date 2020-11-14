@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 200
-  itemName: Mask
+  itemName: Legs02
 --- !u!114 &62021631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -858,7 +858,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 200
-  itemName: Mask
+  itemName: Body05
 --- !u!114 &129918913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1226,7 +1226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 200
-  itemName: Mask
+  itemName: Body01
 --- !u!114 &210250546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1856,7 +1856,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 200
-  itemName: Mask
+  itemName: Face05
 --- !u!114 &330571195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2813,7 +2813,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 200
-  itemName: Mask
+  itemName: Legs01
 --- !u!114 &625680574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2977,7 +2977,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 200
-  itemName: Mask
+  itemName: Face03
 --- !u!114 &637872733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3673,7 +3673,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 200
-  itemName: Mask
+  itemName: Face04
 --- !u!114 &791698447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4211,7 +4211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 200
-  itemName: Mask
+  itemName: Body04
 --- !u!114 &904599646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5508,7 +5508,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 200
-  itemName: Mask
+  itemName: Legs03
 --- !u!114 &1120232009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5980,7 +5980,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 200
-  itemName: Mask
+  itemName: Face02
 --- !u!114 &1228184678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6452,7 +6452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 200
-  itemName: Mask
+  itemName: Face01
 --- !u!114 &1347220935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7072,7 +7072,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 200
-  itemName: Mask
+  itemName: Head01
 --- !u!114 &1567484244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7540,7 +7540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 200
-  itemName: Mask
+  itemName: Body03
 --- !u!114 &1635133280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7860,7 +7860,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 200
-  itemName: Mask
+  itemName: Legs04
 --- !u!114 &1912354159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8102,7 +8102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 200
-  itemName: Mask
+  itemName: Legs05
 --- !u!114 &1972228407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8488,7 +8488,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 200
-  itemName: Mask
+  itemName: Head02
 --- !u!114 &2028485594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8809,7 +8809,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 200
-  itemName: Mask
+  itemName: Body02
 --- !u!114 &2088150798
 MonoBehaviour:
   m_ObjectHideFlags: 0
