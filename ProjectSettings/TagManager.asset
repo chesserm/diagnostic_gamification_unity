@@ -11,6 +11,8 @@ TagManager:
   - ReasoningButton3
   - ReasoningButton4
   - DataText
+  - coins_disp
+  - test_message
   layers:
   - Default
   - TransparentFX
