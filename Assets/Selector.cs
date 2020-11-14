@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Selector : MonoBehaviour
+public class Selector : Customize
 {
     //body part we are changing 
     public SpriteRenderer bodypart;
@@ -17,7 +17,7 @@ public class Selector : MonoBehaviour
         if(currentOption >= options.Count){
             currentOption = 0;
         }
-
+        
         bodypart.sprite = options[currentOption];
     }
 

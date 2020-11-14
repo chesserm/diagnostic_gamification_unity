@@ -50,7 +50,8 @@ public class Shop : MonoBehaviour
         }
         else
         {
-            coins = -1;
+            coins = 99999;
+
         }
     }
 

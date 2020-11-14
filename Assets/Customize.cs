@@ -7,7 +7,13 @@ using System.Runtime.Serialization;
 public class Customize : MonoBehaviour
 {
     public ShopItemHandler handler;
+    public List<bool> headoptions;
+    public List<bool> legoptions;
+    public List<bool> faceoptions;
+    public List<bool> bodyoptions;
 
+
+    
     public void ReturnToMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
@@ -34,11 +40,96 @@ public class Customize : MonoBehaviour
             //TODO: Set the equipped default values
 
         }
+
+        headoptions = new List<bool>(new bool[] { handler.Head01, handler.Head02 });
+        legoptions = new List<bool>(new bool[] { handler.Legs01, handler.Legs02, handler.Legs03, handler.Legs04, handler.Legs05});
+        faceoptions = new List<bool>(new bool[] { handler.Face01, handler.Face02, handler.Face03, handler.Face04, handler.Face05 });
+        bodyoptions = new List<bool>(new bool[] { handler.Body01, handler.Body02, handler.Body03, handler.Body04, handler.Body05 });
+
     }
 
     // Update is called once per frame
     void Update()
     {
+
+    }
+
+
+
+    //SELECTOR 
+    //body part we are changing 
+    public SpriteRenderer bodypart;
+    //all the options we own for this bodypart TODO
+    public List<Sprite> options;
+
+    
+
+    public int currentOption = 1;
+
+    public void nextOption()
+    {
+        List<bool> robotoptions;
+        if(bodypart.name == "head"){
+            robotoptions = headoptions;
+        }
+        else if(bodypart.name == "leg"){
+            robotoptions = legoptions;
+        }
+        else if(bodypart.name == "face"){
+            robotoptions = faceoptions;
+        }
+        else{
+            robotoptions = bodyoptions;
+        }
+        int lastOption = currentOption;
+        currentOption++;
+        while(currentOption != lastOption){
+            if(currentOption >= options.Count){
+                currentOption = 0;
+            }
+
+            if(robotoptions[currentOption]){
+                break;
+            }
+            else{
+                currentOption++;
+            }
+        }
+        
+        bodypart.sprite = options[currentOption];
+    }
+
+    public void previousOption()
+    {
+        List<bool> robotoptions;
+        if(bodypart.name == "head"){
+            robotoptions = headoptions;
+        }
+        else if(bodypart.name == "leg"){
+            robotoptions = legoptions;
+        }
+        else if(bodypart.name == "face"){
+            robotoptions = faceoptions;
+        }
+        else{
+            robotoptions = bodyoptions;
+        }
+        int lastOption = currentOption;
+        currentOption--;
+        while(currentOption != lastOption){
+            if(currentOption <= 0){
+                currentOption = options.Count - 1;
+            }
+
+            if(robotoptions[currentOption]){
+                break;
+            }
+            else{
+                currentOption--;
+            }
+        }
+        
+        bodypart.sprite = options[currentOption];
 
     }
 }
