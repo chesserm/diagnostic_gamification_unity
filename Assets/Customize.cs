@@ -36,7 +36,11 @@ public class Customize : MonoBehaviour
             handler.Face01 = true;
             handler.BodyGrey = true;
             handler.Legs01 = true;
-            //TODO: Set the equipped default values
+            handler.SetEquippedHead(1);
+            handler.SetEquippedBody(1);
+            handler.SetEquippedLegs(1);
+            handler.SetEquippedFace(1);
+            handler.SetEquippedColor("grey");
 
         }
 
