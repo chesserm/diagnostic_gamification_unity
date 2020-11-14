@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using HelperNamespace;
 
 public class getxray : MonoBehaviour
 {
@@ -12,6 +13,11 @@ public class getxray : MonoBehaviour
 
     private void Start()
     {
+        /*
+         * // Get the x-ray link stored in the PatientData object in the CaseInformation static class
+         *   url = CaseInformation.patient.CXRLink;
+         */
+
         StartCoroutine(GetTextureRequest(url, (response) => {
             targetSprite = response;
             spriteRenderer.sprite = targetSprite;

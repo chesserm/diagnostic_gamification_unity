@@ -13,6 +13,7 @@ TagManager:
   - DataText
   - coins_disp
   - test_message
+  - ContainerObject
   layers:
   - Default
   - TransparentFX
