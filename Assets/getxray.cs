@@ -8,7 +8,7 @@ public class getxray : MonoBehaviour
     public SpriteRenderer spriteRenderer;
 
     private Sprite targetSprite;
-    private string url = "https://homepages.cae.wisc.edu/~ece533/images/cat.png";
+    private string url = "https://i.imgur.com/DyY4iSw.jpg";
 
     private void Start()
     {
@@ -33,7 +33,7 @@ public class getxray : MonoBehaviour
                 if (www.isDone)
                 {
                     var texture = DownloadHandlerTexture.GetContent(www);
-                    var rect = new Rect(0, 0, 490f, 733f);
+                    var rect = new Rect(0, 0, 1560f, 1281f);
                     var sprite = Sprite.Create(texture, rect, new Vector2(0.5f, 0.5f));
                     callback(sprite);
                 }

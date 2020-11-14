@@ -14,10 +14,6 @@ public class Statistics : MonoBehaviour
     Text coins_text;
     int coins;
 
-    GameObject APImessage;
-    Text messagetext;
-    string message;
-
     public void ReturnToMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
@@ -47,7 +43,36 @@ public class Statistics : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        coins_text.text = "coins: " + coins.ToString();
+        string key = "block";
+        int index = 1;
+        while(PlayerPrefs.HasKey(key + index))
+        {
+            BlockStats CurrentBlock = JsonUtility.FromJson<BlockStats>(PlayerPrefs.GetString(key + index));
+
+
+            string copdplaceholder = ("COPD Accuracy: " + ((double)CurrentBlock.COPDCorrect / CurrentBlock.COPD) * 100 + "%\n");
+            string CHFplaceholder = ("CHF Accuracy: " + ((double)CurrentBlock.CHFCorrect / CurrentBlock.CHF) * 100 + "%\n");
+            string Pneumoniaplaceholder = ("Pneumonia Accuracy: " + ((double)CurrentBlock.PneumoniaCorrect / CurrentBlock.Pneumonia) * 100 + "%\n");
+            string totalplaceholder = ("Total Accuracy: " + ((double)CurrentBlock.PneumoniaCorrect + (double)CurrentBlock.CHFCorrect + (double)CurrentBlock.COPDCorrect / 10) * 100 + "%\n");
+
+            // check for blocks in which there are no cases of a specific type
+            if (CurrentBlock.COPD == 0)
+            {
+                copdplaceholder = "no COPD cases\n";
+            }
+            if (CurrentBlock.CHF == 0)
+            {
+                CHFplaceholder = "no CHF cases\n";
+            }
+            if (CurrentBlock.Pneumonia == 0)
+            {
+                Pneumoniaplaceholder = "no Pneumonia cases\n";
+            }
+
+            coins_text.text = coins_text.text + "block " + index + "\n" + copdplaceholder + CHFplaceholder + Pneumoniaplaceholder + totalplaceholder + "\n"; 
+            index++;
+        }
+        
         //messagetext.text = message;
     }
 }
