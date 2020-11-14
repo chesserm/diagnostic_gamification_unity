@@ -28,6 +28,7 @@ public class PlayReasoning : MonoBehaviour
     Text ReasoningButton3Text;
 
 
+
     #region EventHandlers
 
     // Function to continue to Main Play Page after reasoning is selected
@@ -112,31 +113,33 @@ public class PlayReasoning : MonoBehaviour
     // Set text for the button correspodning to the reasoning assigned to the index passed in
     private void AssignReasoningTextToButton(int reasoningIndex, ReasoningState reasoning)
     {
-        // Correct Reasoning
-        switch ( reasoningIndex)
+        string reasoningText = PlayLoopData.ReasoningValues[CaseInformation.SelectedSymptom][reasoning];
+
+        // Reasoning index (what button index did this reasoning text get assigned to)
+        switch (reasoningIndex)
         {
             // Set it to button 1 (index 0)
             case 0:
                 {
-                    ReasoningButton0Text.text = PlayLoopData.ReasoningValues[CaseInformation.SelectedSymptom][reasoning];
+                    ReasoningButton0Text.text = reasoningText;
                     break;
                 }
             // Set it to button 2 (index 1)
             case 1:
                 {
-                    ReasoningButton1Text.text = PlayLoopData.ReasoningValues[CaseInformation.SelectedSymptom][reasoning];
+                    ReasoningButton1Text.text = reasoningText;
                     break;
                 }
             // Set it to button 3 (index 2)
             case 2:
                 {
-                    ReasoningButton2Text.text = PlayLoopData.ReasoningValues[CaseInformation.SelectedSymptom][reasoning];
+                    ReasoningButton2Text.text = reasoningText;
                     break;
                 }
             // Set it to button 4 (index 3)
             case 3:
                 {
-                    ReasoningButton3Text.text = PlayLoopData.ReasoningValues[CaseInformation.SelectedSymptom][reasoning];
+                    ReasoningButton3Text.text = reasoningText;
                     break;
                 }
             default:
@@ -152,6 +155,7 @@ public class PlayReasoning : MonoBehaviour
     // Update dictionary reasoning based on selected button index
     private void AddUserReasoningSelection()
     {
+        
         if (SelectedButtonIndex == correctIndex)
         {
             CaseInformation.UserReasoning[CaseInformation.SelectedSymptom] = ReasoningState.Correct;
@@ -178,12 +182,15 @@ public class PlayReasoning : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CaseInformation.SelectedSymptom = SymptomState.Heart;
+        //*************************** FOR DEBUGGING PURPOSES ONLY ***************************
+        //CaseInformation.SelectedSymptom = SymptomState.Heart;
+
+        //***********************************************************************************
 
         // Establish the references to the UI elements on screen
         SetComponentVariables();
 
-        // Determine indices for reasoning text
+        // Determine indices for reasoning text (randomizes positions of reasoning)
         RandomlyAssignReasoningIndices();
 
 
@@ -201,17 +208,13 @@ public class PlayReasoning : MonoBehaviour
         
     }
 
+
     // Run this after the button clicks and before the destroying of th e
     void OnDestroy()
     {
         
-        UnityEngine.Debug.Log("testing");
-
-        UnityEngine.Debug.Log(CaseInformation.UserReasoning);
         // Add reasoning choice to dictionary
         AddUserReasoningSelection();
-
-        UnityEngine.Debug.Log(CaseInformation.UserReasoning);
 
 
         // Reset SelectedSymptom before returning to main play screen

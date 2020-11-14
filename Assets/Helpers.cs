@@ -19,8 +19,7 @@ namespace HelperNamespace
         Imaging,
         Bloodwork,
         Skin,
-        Nothing,
-        MainMenu
+        Nothing
     }
 
     public enum ReasoningState
