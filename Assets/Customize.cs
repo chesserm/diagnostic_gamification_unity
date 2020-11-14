@@ -143,7 +143,7 @@ public class Customize : MonoBehaviour
         int lastOption = currentOption;
         currentOption--;
         while(currentOption != lastOption){
-            if(currentOption <= 0){
+            if(currentOption < 0){
                 currentOption = options.Count - 1;
             }
 
@@ -169,5 +169,6 @@ public class Customize : MonoBehaviour
             handler.SetEquippedBody(currentOption + 1);
         }
         PrefabUtility.SaveAsPrefabAsset(robotprefab, "Assets/robot.prefab");
+        Debug.Log(currentOption);
     }
 }
