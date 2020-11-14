@@ -6,6 +6,10 @@ TagManager:
   tags:
   - canvas
   - ageText
+  - ReasoningButton1
+  - ReasoningButton2
+  - ReasoningButton3
+  - ReasoningButton4
   layers:
   - Default
   - TransparentFX

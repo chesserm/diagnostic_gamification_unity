@@ -22,9 +22,9 @@ public class PlaySymptomData : MonoBehaviour
     {
 
         UnityEngine.Debug.Log("Inside Play Symptom Data");
-        UnityEngine.Debug.Log(InterSceneData.patient.Age);
-        InterSceneData.patient.Age = 99;
-        UnityEngine.Debug.Log(InterSceneData.patient.Age);
+        UnityEngine.Debug.Log(CaseInformation.patient.Age);
+        CaseInformation.patient.Age = 99;
+        UnityEngine.Debug.Log(CaseInformation.patient.Age);
     }
 
     // Update is called once per frame

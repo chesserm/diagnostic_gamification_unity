@@ -36,7 +36,7 @@ public class Play : MonoBehaviour
 
     public void DisplayData()
     {
-        ageText.text = "Narratives: " + InterSceneData.patient.Age;
+        ageText.text = "Narratives: " + CaseInformation.patient.Age;
     }
 
 
@@ -44,13 +44,13 @@ public class Play : MonoBehaviour
     void Start()
     {
         // Get new record
-        InterSceneData.get_patient_data();
+        CaseInformation.get_patient_data();
 
 
         // Testing passing data between scenes
-        UnityEngine.Debug.Log(InterSceneData.patient.Age);
-        InterSceneData.patient.Age = 50;
-        UnityEngine.Debug.Log(InterSceneData.patient.Age);
+        UnityEngine.Debug.Log(CaseInformation.patient.Age);
+        CaseInformation.patient.Age = 50;
+        UnityEngine.Debug.Log(CaseInformation.patient.Age);
 
         // Setting text box value
         textObject = GameObject.FindGameObjectWithTag("ageText");

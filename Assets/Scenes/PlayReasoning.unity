@@ -369,7 +369,7 @@ GameObject:
   - component: {fileID: 866818246}
   m_Layer: 5
   m_Name: Option2Button
-  m_TagString: Untagged
+  m_TagString: ReasoningButton2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -499,7 +499,7 @@ GameObject:
   - component: {fileID: 922961516}
   m_Layer: 5
   m_Name: Option1Button
-  m_TagString: Untagged
+  m_TagString: ReasoningButton1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -777,7 +777,7 @@ GameObject:
   - component: {fileID: 1294873518}
   m_Layer: 5
   m_Name: Option4Button
-  m_TagString: Untagged
+  m_TagString: ReasoningButton4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1069,7 +1069,7 @@ GameObject:
   - component: {fileID: 1546794147}
   m_Layer: 5
   m_Name: Option3Button
-  m_TagString: Untagged
+  m_TagString: ReasoningButton3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
