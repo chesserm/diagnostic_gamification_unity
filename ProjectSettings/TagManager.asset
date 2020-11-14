@@ -10,6 +10,7 @@ TagManager:
   - ReasoningButton2
   - ReasoningButton3
   - ReasoningButton4
+  - DataText
   layers:
   - Default
   - TransparentFX
