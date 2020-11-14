@@ -76,6 +76,7 @@ public class PlaySymptomData : MonoBehaviour
     }
 
 
+    // Data  parsers for each different symptom
     #region DataParsers
 
 

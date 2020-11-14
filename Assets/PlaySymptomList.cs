@@ -20,12 +20,13 @@ public class PlaySymptomList : MonoBehaviour
         SceneManager.LoadScene("PlaySymptomData");
     }
 
+
+
     // Function corresponding to selecting the General Exam
     public void SelectGeneralSymptom()
     {
         CaseInformation.SelectedSymptom = SymptomState.General;
     }
-
 
     // Function corresponding to selecting the Head Exam
     public void SelectHeadSymptom()
@@ -57,6 +58,12 @@ public class PlaySymptomList : MonoBehaviour
         CaseInformation.SelectedSymptom = SymptomState.Extremities;
     }
 
+    // Function corresponding to selecting the Extremities Exam
+    public void SelectAbdomenSymptom()
+    {
+        CaseInformation.SelectedSymptom = SymptomState.Abdomen;
+    }
+
     // Function corresponding to selecting the Skin Exam
     public void SelectSkinSymptom()
     {
@@ -82,6 +89,8 @@ public class PlaySymptomList : MonoBehaviour
     }
 
     #endregion 
+
+
 
 
     // Start is called before the first frame update
