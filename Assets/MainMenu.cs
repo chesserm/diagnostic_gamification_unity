@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    public ShopItemHandler handler;
+
     // Go to Play Scene
     public void GoToPlay()
     {
@@ -27,5 +29,27 @@ public class MainMenu : MonoBehaviour
     public void GoToStatistics()
     {
         SceneManager.LoadScene("Statistics");
+    }
+
+    void Start()
+    {
+        if (!PlayerPrefs.HasKey("ShopItemHandler"))
+        {
+            handler = new ShopItemHandler();
+            handler.Head01 = true;
+            handler.Body01 = true;
+            handler.Face01 = true;
+            handler.BodyGrey = true;
+            handler.Legs01 = true;
+            handler.SetEquippedHead(1);
+            handler.SetEquippedBody(1);
+            handler.SetEquippedLegs(1);
+            handler.SetEquippedFace(1);
+            handler.SetEquippedColor("grey");
+
+            // Save handler in playerprefs
+            string strHandler = JsonUtility.ToJson(handler);
+            PlayerPrefs.SetString("ShopItemHandler", strHandler);
+        }
     }
 }

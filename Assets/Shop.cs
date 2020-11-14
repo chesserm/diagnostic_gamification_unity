@@ -28,25 +28,10 @@ public class Shop : MonoBehaviour
     void Start()
     {
         // Load in handler from playerprefs
-        if (PlayerPrefs.HasKey("ShopItemHandler"))
-        {
-            string strHandler = PlayerPrefs.GetString("ShopItemHandler");
-            handler = JsonUtility.FromJson<ShopItemHandler>(strHandler);
-        }
-        else
-        {
-            handler = new ShopItemHandler();
-            handler.Head01 = true;
-            handler.Body01 = true;
-            handler.Face01 = true;
-            handler.BodyGrey = true;
-            handler.Legs01 = true;
-            handler.SetEquippedHead(1);
-            handler.SetEquippedBody(1);
-            handler.SetEquippedLegs(1);
-            handler.SetEquippedFace(1);
-            handler.SetEquippedColor("grey");
-        }
+        string strHandler = PlayerPrefs.GetString("ShopItemHandler");
+        handler = JsonUtility.FromJson<ShopItemHandler>(strHandler);
+       
+        
         // Load in coin amount from playerprefs
         if (PlayerPrefs.HasKey("NumCoins"))
         {
