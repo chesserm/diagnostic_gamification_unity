@@ -23,37 +23,13 @@ public class Customize : MonoBehaviour
     void Start()
     {
         // Load in handler from playerprefs
-        if (PlayerPrefs.HasKey("ShopItemHandler"))
-        {
-            string strHandler = PlayerPrefs.GetString("ShopItemHandler");
-            handler = JsonUtility.FromJson<ShopItemHandler>(strHandler);
-        }
-        else
-        {
-            handler = new ShopItemHandler();
-            handler.Head01 = true;
-            handler.Body01 = true;
-            handler.Face01 = true;
-            handler.BodyGrey = true;
-            handler.Legs01 = true;
-            handler.SetEquippedHead(1);
-            handler.SetEquippedBody(1);
-            handler.SetEquippedLegs(1);
-            handler.SetEquippedFace(1);
-            handler.SetEquippedColor("grey");
-
-        }
-
+        string strHandler = PlayerPrefs.GetString("ShopItemHandler");
+        handler = JsonUtility.FromJson<ShopItemHandler>(strHandler);
+        
         headoptions = new List<bool>(new bool[] { handler.Head01, handler.Head02 });
         legoptions = new List<bool>(new bool[] { handler.Legs01, handler.Legs02, handler.Legs03, handler.Legs04, handler.Legs05});
         faceoptions = new List<bool>(new bool[] { handler.Face01, handler.Face02, handler.Face03, handler.Face04, handler.Face05 });
         bodyoptions = new List<bool>(new bool[] { handler.Body01, handler.Body02, handler.Body03, handler.Body04, handler.Body05 });
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
 
     }
 
