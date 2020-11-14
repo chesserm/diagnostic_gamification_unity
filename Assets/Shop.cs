@@ -16,7 +16,8 @@ public class Shop : MonoBehaviour
     {
         // Add item to playerprefs list if we can have one
         coinsText.text = coins.ToString();
-        //handler.PurchaseItem()
+        handler.PurchaseItem(item);
+        Debug.Log(item);
     }
 
     public void ReturnToMainMenu()
