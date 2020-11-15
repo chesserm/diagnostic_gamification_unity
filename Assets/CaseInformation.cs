@@ -27,6 +27,8 @@ namespace HelperNamespace
         // Dictionary to hold resoning choices
         public static Dictionary<SymptomState, ReasoningState> UserReasoning = new Dictionary<SymptomState, ReasoningState>();
 
+        // Case ID of the current case being diagnosed 
+        public static int CaseID;
         #endregion
 
 
@@ -53,6 +55,38 @@ namespace HelperNamespace
             return;
         }
 
+
+        // Helper to get the next case ID to pass to the API call (next database record to get)
+        private static void GetDatabaseCaseID()
+        {
+            
+            // We store the index to this data structure in PlayerPrefs to track the next case ID to fetch.
+            // The values stored in the array are the case IDs for the records we were given. THis is a 
+            // temporary solution since we were not give the full database and the records are not contiguous.
+            int[] caseIDS = new int[] {208, 209, 210, 211, 212, 213, 216, 222, 224, 228, 231, 233, 234, 236, 238, 241, 243, 246, 247 };
+
+            // Return value
+            int currentCaseIndex;
+
+            // Get the index of the caseIDs array from PlayerPrefs
+            if (PlayerPrefs.HasKey("DatabaseCaseIndex"))
+            {
+                currentCaseIndex = PlayerPrefs.GetInt("DatabaseCaseIndex");
+            }
+            else
+            {
+                currentCaseIndex = 0;
+            }
+
+            // Update the PlayerPrefs Index for the next call (check for need to wrap index back to 0)
+            int nextIndex =  (currentCaseIndex < 18) ? (currentCaseIndex + 1) : 0;
+            PlayerPrefs.SetInt("DatabaseCaseIndex", nextIndex);
+
+            // Set the member variable to be the CaseID
+            // We are doing this instead of just returning it, in case it is needed for X-Ray URL parsing.
+            CaseID = caseIDS[currentCaseIndex];
+        }
+
         #endregion
 
 
@@ -62,10 +96,9 @@ namespace HelperNamespace
         // Function to do API call and get data for a record
         public static void get_patient_data()
         {
-            // Construct API endpoint URL
-            // CASE ID is currently hardcoded, should be passed in to this function
-            int caseID = 208;
-            string url = "https://diagnostic-gamification-api.herokuapp.com/v1/cases/" + caseID; 
+            // Construct API endpoint URL (case ID is determined using a private helper function)
+            GetDatabaseCaseID();
+            string url = "https://diagnostic-gamification-api.herokuapp.com/v1/cases/" + CaseID; 
 
             // Make HTTP request to URL
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(String.Format(url));
@@ -74,13 +107,9 @@ namespace HelperNamespace
             // Read in HTTP response from API, which will have our data in JSON format
             StreamReader reader = new StreamReader(response.GetResponseStream());
             string jsonResponse = reader.ReadToEnd();
-            UnityEngine.Debug.Log(jsonResponse);
 
             // Parse our data from JSON into our C# serializable class (defined in PatientData.cs)
             patient = JsonUtility.FromJson<PatientData>(jsonResponse);
-
-            // Testing reserializing
-            string myVariable = JsonUtility.ToJson(patient);
 
             // Set the true diagnosis enum based on diagnosis string value from API response
             SetDiagnosisEnum();
@@ -91,6 +120,8 @@ namespace HelperNamespace
 
 
         // Reset all static information that should only be relevant for this diagnostic session
+        // Should only be called when player exits play loop to the main menu 
+        // (in summary page and from button in main play page)
         public static void ResetCaseInformation()
         {
             patient = new PatientData();

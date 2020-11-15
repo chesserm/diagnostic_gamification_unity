@@ -15,6 +15,7 @@ public class getxray : MonoBehaviour
     {
         /*
          * // Get the x-ray link stored in the PatientData object in the CaseInformation static class
+         * // Change the url intialization to declaration only
          *   url = CaseInformation.patient.CXRLink;
          */
 

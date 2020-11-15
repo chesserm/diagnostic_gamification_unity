@@ -14,7 +14,8 @@ public class PlaySymptomData : MonoBehaviour
     // Boolean to check if selected symptom is one that does not require reasoning
     private bool doesSymptomSkipReasoning = false;
 
-    // Variables to access the GameObject 
+    // Variables to access the GameObjects (image and Textbox)
+    GameObject XRayImageObject;
     GameObject TextboxObject;
     Text DataText;
 
@@ -70,6 +71,32 @@ public class PlaySymptomData : MonoBehaviour
         else
         {
             doesSymptomSkipReasoning = false;
+        }
+
+        return;
+    }
+
+
+    // Enable the proper game object depending on the selected symptom
+    private void EnableProperGameObject()
+    {
+        // Only set the X-Ray Image to active when the user has selected it
+        if (CaseInformation.SelectedSymptom == SymptomState.Imaging)
+        {
+            // Disable text box
+            TextboxObject.SetActive(false);
+
+            // Enable X-Ray Image
+            XRayImageObject.SetActive(true);
+        }
+        else
+        {
+            // Enable text box
+            TextboxObject.SetActive(true);
+
+            // Disable X-Ray Image
+            XRayImageObject.SetActive(false);
+
         }
 
         return;
@@ -483,10 +510,14 @@ public class PlaySymptomData : MonoBehaviour
         // Check to see if it is one of the smymptoms that will not require reasoning
         isReasoningSkipped();
 
-        // Assign the Textbox references to the UI element
+        // Assign the GameObject references to the UI element
+        XRayImageObject = GameObject.FindGameObjectWithTag("XRayImage");
         TextboxObject = GameObject.FindGameObjectWithTag("DataText");
         DataText = TextboxObject.GetComponent<Text>();
 
+
+        // Enable/Disable the proper UI element (X-Ray image or textbox)
+        EnableProperGameObject();
 
         // DisplayText according to symptom data
         DisplaySymptomData();
