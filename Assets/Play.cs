@@ -11,13 +11,6 @@ public class Play : MonoBehaviour
 {
     #region ButtonHandlers
     
-    // Function to return to main menu
-    public void ReturnToMainMenu()
-    {
-        SceneManager.LoadScene("MainMenu");
-    }
-
-
     // Funciton to continue to main play loop
     public void ContinueButtonHandler()
     {
@@ -26,16 +19,13 @@ public class Play : MonoBehaviour
 
     #endregion 
 
-    // Variable to track data from database
-    //public PatientData patientData;
-
+    // UI element references
     private GameObject textObject;
-
-    private Text ageText;
+    private Text initialText;
 
 
     // Parse the General Exam Data
-    public string ParseGeneralExam()
+    public void DisplayData()
     {
 
         /* 
@@ -70,7 +60,7 @@ public class Play : MonoBehaviour
         if (provFactors.Length == 0)
         {
             provFactors = "None";
-        }    
+        }
 
 
 
@@ -81,59 +71,58 @@ public class Play : MonoBehaviour
             + "\t" + "Gender: " + gender + "\n"
             + "\n"
             + "Medical History\n"
-            + "\t - " + "Tobacco Use: " + tobaccoUse + "\n\n"
-            + "\t - " + pastMed1 + "\n\n"
-            + "\t - " + pastMed2 + "\n\n"
-            + "\t - " + pastMed3 + "\n\n"
-            + "\n\n"
-            + "Symptom Information\n\n"
-            + "\t" + "Symptom Description: " + symptomDesc + "\n"
-            + "\t" + "Symptom Onset: " + symptomOnset + "\n"
-            + "\t" + "Provocating Factors: " + provFactors + "\n"
+            + "\t - " + "Tobacco Use: " + tobaccoUse + "\n";
 
+
+        // Check past med history for content before adding them
+        if (pastMed1.Length != 0)
+        {
+            dataString += "\t - " + pastMed1 + "\n";
+        }
+
+        if (pastMed2.Length != 0)
+        {
+            dataString += "\t - " + pastMed2 + "\n";
+        }
+
+        if (pastMed3.Length != 0)
+        {
+            dataString += "\t - " + pastMed3 + "\n";
+        }
+
+
+            dataString += "\n\n"
+            + "Symptom Information\n\n"
+            + "\t" + "Symptom Description: " + symptomDesc + "\n\n"
+            + "\t" + "Symptom Onset: " + symptomOnset + "\n\n"
+            + "\t" + "Provocating Factors: " + provFactors + "\n\n"
             ;
 
+        initialText.text = dataString;
 
-        return dataString;
-    }
-
-    public void DisplayData()
-    {
-
-        /* 
-         * Initial Information displays the following values from the database:
-         * Phsyical Exam - General
-         * Temperature
-         * Heart Rate
-         * Respiratory Rate
-         * Blood Pressure
-         */
-        ageText.text = "Narratives: " + CaseInformation.patient.Age;
+        return;
     }
 
 
     // Start is called before the first frame update
     void Start()
     {
-        // Get new record
+        // Establish UI element Gameobject reference
+        textObject = GameObject.FindGameObjectWithTag("InitialDataText");
+        initialText = textObject.GetComponent<Text>();
+
+        // Get new record from Database
         CaseInformation.get_patient_data();
 
+        // Display Initial Data on the Play page
+        DisplayData();
 
-        // Testing passing data between scenes
-        UnityEngine.Debug.Log(CaseInformation.patient.Age);
-        CaseInformation.patient.Age = 50;
-        UnityEngine.Debug.Log(CaseInformation.patient.Age);
-
-        // Setting text box value
-        textObject = GameObject.FindGameObjectWithTag("ageText");
-        ageText = textObject.GetComponent<Text>();
-        //getData();
     }
 
     // Update is called once per frame
     void Update()
     {
-        DisplayData();
+        
     }
 }
 

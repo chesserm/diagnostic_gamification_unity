@@ -5,7 +5,6 @@ TagManager:
   serializedVersion: 2
   tags:
   - canvas
-  - ageText
   - ReasoningButton1
   - ReasoningButton2
   - ReasoningButton3
@@ -15,6 +14,7 @@ TagManager:
   - test_message
   - ContainerObject
   - XRayImage
+  - InitialDataText
   layers:
   - Default
   - TransparentFX
