@@ -29,7 +29,18 @@ public class PlaySummary : MonoBehaviour
     // Function to return to main menu
     public void ContinueButtonHandler()
     {
+        // Reset the static player data so the next entry into 
+        // the Play loop is a clean slate
+        CaseInformation.ResetCaseInformation();
+
         SceneManager.LoadScene("MainMenu");
+    }
+
+
+    // Function to go to reasoning page
+    public void ReasoningButtonHandler()
+    {
+        SceneManager.LoadScene("CompareReasoning");
     }
 
     #endregion
@@ -185,28 +196,63 @@ public class PlaySummary : MonoBehaviour
     #region DisplayFunctions
 
 
+    // Update the text of the UI components for the Diagnoses
     private void DisplayDiagnosis()
     {
+        UnityEngine.Debug.Log(CaseInformation.UserDiagnosis);
+        UnityEngine.Debug.Log(CaseInformation.TrueDiagnosis);
 
+        GameObject userDiagnosisTextbox = GameObject.FindGameObjectWithTag("UserDiagnosis");
+        Text userDiagnosisText = userDiagnosisTextbox.GetComponent<Text>();
+        userDiagnosisText.text = "Your diagnosis: " + CaseInformation.UserDiagnosis;
+
+        if (wasUserCorrect)
+        {
+            userDiagnosisText.color = Color.green;
+        }
+        else
+        {
+            userDiagnosisText.color = Color.red;
+        }
+
+
+
+        GameObject correctDiagnosisTextbox = GameObject.FindGameObjectWithTag("CorrectDiagnosis");
+        Text correctDiagnosisText = correctDiagnosisTextbox.GetComponent<Text>();
+        correctDiagnosisText.text = "Correct diagnosis: " + CaseInformation.TrueDiagnosis;
     }
 
+
+    // Update the text of the UI components for the Reasoning
     private void DisplayReasoning()
     {
 
     }
 
 
+    // Update the text of the UI component for the expert comments
     private void DisplayExpertComment()
     {
+        GameObject expertCommentTextBox = GameObject.FindGameObjectWithTag("ExpertComments");
+        Text expertCommentsText = expertCommentTextBox.GetComponent<Text>();
 
+        expertCommentsText.text = CaseInformation.patient.ExpertComments;
     }
 
 
+    // Update the text of the UI component for the rewards
     private void DisplayRewards()
     {
+        GameObject coinsTextObject = GameObject.FindGameObjectWithTag("Coins");
+        Text coinsText = coinsTextObject.GetComponent<Text>();
+        coinsText.text = coinsAwarded.ToString();
+
+        GameObject expTextObject = GameObject.FindGameObjectWithTag("Experience");
+        Text expText = expTextObject.GetComponent<Text>();
+        expText.text = expAwarded.ToString() + " exp.";
+
 
     }
-
     #endregion
 
 
@@ -247,14 +293,5 @@ public class PlaySummary : MonoBehaviour
 
 
 
-    void OnDestroy()
-    {
-
-        int coins = PlayerPrefs.GetInt("NumCoins");
-        UnityEngine.Debug.Log(coins);
-
-        // Reset the static player data so the next entry into 
-        // the Play loop is a clean slate
-        CaseInformation.ResetCaseInformation();
-    }
+ 
 }

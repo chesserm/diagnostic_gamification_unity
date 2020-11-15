@@ -15,6 +15,11 @@ TagManager:
   - ContainerObject
   - XRayImage
   - InitialDataText
+  - UserDiagnosis
+  - CorrectDiagnosis
+  - Coins
+  - Experience
+  - ExpertComments
   layers:
   - Default
   - TransparentFX
