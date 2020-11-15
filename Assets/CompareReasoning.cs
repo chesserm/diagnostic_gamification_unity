@@ -86,47 +86,47 @@ public class CompareReasoning : MonoBehaviour
         {
             case (SymptomState.General):
                 {
-                    textComponent.text = "General Exam Reasoning";
+                    textComponent.text = "General Exam";
                     break;
                 }
             case (SymptomState.Neck):
                 {
-                    textComponent.text = "Neck Exam Reasoning";
+                    textComponent.text = "Neck Exam";
                     break;
                 }
             case (SymptomState.Heart):
                 {
-                    textComponent.text = "Heart Exam Reasoning";
+                    textComponent.text = "Heart Exam";
                     break;
                 }
             case (SymptomState.Lungs):
                 {
-                    textComponent.text = "Lungs Exam Reasoning";
+                    textComponent.text = "Lungs Exam";
                     break;
                 }
             case (SymptomState.Extremities):
                 {
-                    textComponent.text = "Extremities Exam Reasoning";
+                    textComponent.text = "Extremities Exam";
                     break;
                 }
             case (SymptomState.Abdomen):
                 {
-                    textComponent.text = "Abdomen Exam Reasoning";
+                    textComponent.text = "Abdomen Exam";
                     break;
                 }
             case (SymptomState.Oxygen):
                 {
-                    textComponent.text = "Oxygen Usage Reasoning";
+                    textComponent.text = "Oxygen Usage";
                     break;
                 }
             case (SymptomState.Imaging):
                 {
-                    textComponent.text = "X-Ray Reasoning";
+                    textComponent.text = "X-Ray Results";
                     break;
                 }
             case (SymptomState.Bloodwork):
                 {
-                    textComponent.text = "Bloodwork Reasoning";
+                    textComponent.text = "Bloodwork Results";
                     break;
                 }
         }
@@ -147,12 +147,12 @@ public class CompareReasoning : MonoBehaviour
 
         if (CaseInformation.UserReasoning[symptom] == ReasoningState.Correct)
         {
-            textComponent.text = "Correct";
+            textComponent.text = "Correct Reasoning";
             textComponent.color = Color.green;
         }
         else
         {
-            textComponent.text = "Incorrect";
+            textComponent.text = "Incorrect Reasoning";
             textComponent.color = Color.red;
         }
 

@@ -223,13 +223,6 @@ public class PlaySummary : MonoBehaviour
     }
 
 
-    // Update the text of the UI components for the Reasoning
-    private void DisplayReasoning()
-    {
-
-    }
-
-
     // Update the text of the UI component for the expert comments
     private void DisplayExpertComment()
     {
@@ -279,9 +272,21 @@ public class PlaySummary : MonoBehaviour
 
         // Display summary results on screen
         DisplayDiagnosis();
-        DisplayReasoning();
         DisplayExpertComment();
         DisplayRewards();
+
+
+        // Check to see if user did not investigate any data with reasoning
+        if (CaseInformation.UserReasoning.Count == 0)
+        {
+            GameObject reasoningButton = GameObject.Find("ReasoningButton");
+            reasoningButton.SetActive(false);
+        }
+
+
+
+
+
 
     }
 
