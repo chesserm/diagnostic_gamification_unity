@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using HelperNamespace;
 
 public class PlaySummary : MonoBehaviour
 {
@@ -50,7 +51,12 @@ public class PlaySummary : MonoBehaviour
 
     void OnDestroy()
     {
+
         int coins = PlayerPrefs.GetInt("NumCoins");
         UnityEngine.Debug.Log(coins);
+
+        // Reset the static player data so the next entry into 
+        // the Play loop is a clean slate
+        CaseInformation.ResetCaseInformation();
     }
 }

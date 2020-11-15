@@ -96,7 +96,9 @@ public class PlaySymptomList : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Just an extra check to make sure this is properly reset
+        // Just an extra safeguard to make sure this is properly reset
+        // This variable should only be set during this scene and is then critical
+        // for the following data and reasoning pages/scenes
         CaseInformation.SelectedSymptom = SymptomState.Nothing;
     }
 

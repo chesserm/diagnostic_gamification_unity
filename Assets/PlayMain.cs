@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using HelperNamespace;
 
 public class PlayMain : MonoBehaviour
 {
@@ -13,6 +14,10 @@ public class PlayMain : MonoBehaviour
     // Function to return to main menu
     public void ReturnToMainMenu()
     {
+        // Reset the static class's data so a new case can be fetched on the next entry
+        CaseInformation.ResetCaseInformation();
+
+        // Return Player to Main Menu
         SceneManager.LoadScene("MainMenu");
     }
 

@@ -90,14 +90,18 @@ namespace HelperNamespace
 
 
 
-        // Reset all static information
+        // Reset all static information that should only be relevant for this diagnostic session
         public static void ResetCaseInformation()
         {
             patient = new PatientData();
+
             SelectedSymptom = SymptomState.Nothing;
+            
             UserDiagnosis = DiagnosisState.Undiagnosed;
             TrueDiagnosis = DiagnosisState.Undiagnosed;
+            
             UserReasoning = new Dictionary<SymptomState, ReasoningState>();
+            
             return;
         }
 
