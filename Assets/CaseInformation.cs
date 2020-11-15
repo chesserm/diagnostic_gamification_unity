@@ -29,6 +29,9 @@ namespace HelperNamespace
 
         // Case ID of the current case being diagnosed 
         public static int CaseID;
+
+        // This is used by the PlayMain scene to detect if its the first entry to the PlayMain page
+        public static bool isFirstPlayMainVisit = true;
         #endregion
 
 
@@ -132,7 +135,10 @@ namespace HelperNamespace
             TrueDiagnosis = DiagnosisState.Undiagnosed;
             
             UserReasoning = new Dictionary<SymptomState, ReasoningState>();
-            
+
+            isFirstPlayMainVisit = true;
+
+
             return;
         }
 
