@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEditor.Animations;
 using UnityEngine.SceneManagement;
-using System.Runtime.Serialization;
+using System.Runtime.Serialization; 
 
 public class Customize : MonoBehaviour
 {
@@ -97,6 +98,9 @@ public class Customize : MonoBehaviour
         }
         else{
             handler.SetEquippedBody(currentOption + 1);
+
+            // Animation stuff
+            EquipAnimationController(currentOption + 1);
         }
         PrefabUtility.SaveAsPrefabAsset(robotprefab, "Assets/robot.prefab");
     }
@@ -143,8 +147,67 @@ public class Customize : MonoBehaviour
         }
         else{
             handler.SetEquippedBody(currentOption + 1);
+
+            // Animation stuff
+            EquipAnimationController(currentOption + 1);
+            
         }
         PrefabUtility.SaveAsPrefabAsset(robotprefab, "Assets/robot.prefab");
         Debug.Log(currentOption);
+    }
+
+
+    // Equip the Animation Controller 
+    // Body Index is one indexed according to the body
+    public void EquipAnimationController(int bodyIndex)
+    {
+        GameObject bodyObject = GameObject.Find("body");
+        Animator anim = bodyObject.GetComponent<Animator>();
+
+        switch (bodyIndex)
+        {
+            case 1:
+                {
+
+                    string path = "Animations/bodies/body01/body01_01_grey";
+                    anim.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>(path);
+                    //UnityEngine.Debug.Log(anim.runtimeAnimatorController);
+                    break;
+                }
+            case 2:
+                {
+                    string path = "Animations/bodies/body02/body02_01_grey";
+                    anim.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController> (path);
+                    //UnityEngine.Debug.Log(anim.runtimeAnimatorController);
+                    break;
+                }
+            case 3:
+                {
+                    string path = "Animations/bodies/body03/body03_00_grey";
+                    anim.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController> (path);
+                    //UnityEngine.Debug.Log(anim.runtimeAnimatorController);
+                    break;
+                }
+            case 4:
+                {
+                    string path = "Animations/bodies/body04/body04_00_grey";
+                    anim.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController> (path);
+                    //UnityEngine.Debug.Log(anim.runtimeAnimatorController);
+                    break;
+                }
+            case 5: 
+                {
+                    string path = "Animations/bodies/body05/body05_0";
+                    anim.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController> (path);
+
+                    //UnityEngine.Debug.Log(anim.runtimeAnimatorController);
+                    break;
+                }
+            default:
+                {
+                    UnityEngine.Debug.Log("Passing in invalid index to EquipAnimationController()");
+                    break;
+                }
+        }
     }
 }
