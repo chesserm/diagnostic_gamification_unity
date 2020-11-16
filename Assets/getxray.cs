@@ -9,15 +9,15 @@ public class getxray : MonoBehaviour
     public SpriteRenderer spriteRenderer;
 
     private Sprite targetSprite;
-    private string url = "https://i.imgur.com/DyY4iSw.jpg";
+    private string url;
 
     private void Start()
     {
-        /*
-         * // Get the x-ray link stored in the PatientData object in the CaseInformation static class
-         * // Change the url intialization to declaration only
-         *   url = CaseInformation.patient.CXRLink;
-         */
+        
+        // Get the x-ray link stored in the PatientData object in the CaseInformation static class
+        // Change the url intialization to declaration only
+        url = CaseInformation.patient.CXRLink;
+         
 
         StartCoroutine(GetTextureRequest(url, (response) => {
             targetSprite = response;

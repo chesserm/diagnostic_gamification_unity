@@ -86,11 +86,12 @@ public class Statistics : MonoBehaviour
         AllTime.Pneumonia += nonCompletedBlock.Pneumonia;
 
         //display the alltime block
+        
 
         string copdplaceholderalltime = "COPD Accuracy: " + RoundToSignificantDigits(((double)AllTime.COPDCorrect / AllTime.COPD) * 100, 2) + "%\n";
         string CHFplaceholderalltime = "CHF Accuracy: " + RoundToSignificantDigits(((double)AllTime.CHFCorrect / AllTime.CHF) * 100, 2) + "%\n";
         string Pneumoniaplaceholderalltime = "Pneumonia Accuracy: " + RoundToSignificantDigits(((double)AllTime.PneumoniaCorrect / AllTime.Pneumonia) * 100, 2) + "%\n";
-        string totalplaceholderalltime = "Total Accuracy: " + RoundToSignificantDigits(((double)AllTime.PneumoniaCorrect + (double)AllTime.CHFCorrect + (double)AllTime.COPDCorrect / PlayerPrefs.GetInt("NextCase")) * 100 , 2) + "%\n";
+        string totalplaceholderalltime = "Total Accuracy: " + RoundToSignificantDigits(((double)AllTime.PneumoniaCorrect + (double)AllTime.CHFCorrect + (double)AllTime.COPDCorrect) / ((PlayerPrefs.GetInt("DatabaseCaseIndex")) ) * 100, 2) + "%\n";
 
         // check for blocks in which there are no cases of a specific type
         if (AllTime.COPD == 0)
