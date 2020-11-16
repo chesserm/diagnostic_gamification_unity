@@ -125,7 +125,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
+  m_MaskInteraction: 2
   m_SpriteSortPoint: 0
 --- !u!222 &299280342443882503
 CanvasRenderer:
@@ -231,7 +231,7 @@ SpriteRenderer:
   m_SortingLayerID: 636039235
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 968d0dec062283c43895c3975d528f3a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9826d14b752296f48a8711781d5057e8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -240,7 +240,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
+  m_MaskInteraction: 2
   m_SpriteSortPoint: 0
 --- !u!222 &299280342540432719
 CanvasRenderer:
@@ -260,7 +260,7 @@ Animator:
   m_GameObject: {fileID: 299280342540432689}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7f7969ac55bcfaa49b9dd890b88fc33f, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6cc03d9e0c41e5b43bab110f6ea86573, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -355,7 +355,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
+  m_MaskInteraction: 2
   m_SpriteSortPoint: 0
 --- !u!222 &299280342596945039
 CanvasRenderer:
@@ -419,7 +419,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -214.67, y: 55}
+  m_AnchoredPosition: {x: -214.67, y: 58}
   m_SizeDelta: {x: 2.6648579, y: 3.2027006}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &299280343045495072
@@ -470,7 +470,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
+  m_MaskInteraction: 2
   m_SpriteSortPoint: 0
 --- !u!222 &299280343045495073
 CanvasRenderer:

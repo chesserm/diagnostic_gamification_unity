@@ -355,7 +355,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 200
+  m_Text: 400
 --- !u!222 &88603624
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -858,7 +858,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 461b71a417693dc49ab1d1243b68daa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 200
+  cost: 500
   itemName: Body05
   texts: []
 --- !u!114 &129918913
@@ -1110,7 +1110,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 200
+  m_Text: 500
 --- !u!222 &197173527
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1575,7 +1575,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 200
+  m_Text: 300
 --- !u!222 &287932565
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1858,7 +1858,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 461b71a417693dc49ab1d1243b68daa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 200
+  cost: 500
   itemName: Face05
   texts: []
 --- !u!114 &330571195
@@ -2673,7 +2673,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 200
+  m_Text: 400
 --- !u!222 &541776786
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2981,7 +2981,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 461b71a417693dc49ab1d1243b68daa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 200
+  cost: 300
   itemName: Face03
   texts: []
 --- !u!114 &637872733
@@ -3463,7 +3463,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 200
+  m_Text: 300
 --- !u!222 &760641314
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3679,7 +3679,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 461b71a417693dc49ab1d1243b68daa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 200
+  cost: 400
   itemName: Face04
   texts: []
 --- !u!114 &791698447
@@ -4218,7 +4218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 461b71a417693dc49ab1d1243b68daa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 200
+  cost: 400
   itemName: Body04
   texts: []
 --- !u!114 &904599646
@@ -5229,7 +5229,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 200
+  m_Text: 400
 --- !u!222 &1106994603
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5516,7 +5516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 461b71a417693dc49ab1d1243b68daa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 200
+  cost: 300
   itemName: Legs03
   texts: []
 --- !u!114 &1120232009
@@ -5694,7 +5694,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 200
+  m_Text: 500
 --- !u!222 &1150513679
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6640,7 +6640,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 200
+  m_Text: 300
 --- !u!222 &1365851267
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7630,7 +7630,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 461b71a417693dc49ab1d1243b68daa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 200
+  cost: 300
   itemName: Body03
   texts: []
 --- !u!114 &1635133280
@@ -7808,7 +7808,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 200
+  m_Text: 500
 --- !u!222 &1737291000
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7951,7 +7951,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 461b71a417693dc49ab1d1243b68daa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 200
+  cost: 400
   itemName: Legs04
   texts: []
 --- !u!114 &1912354159
@@ -8194,7 +8194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 461b71a417693dc49ab1d1243b68daa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 200
+  cost: 500
   itemName: Legs05
   texts: []
 --- !u!114 &1972228407
@@ -8581,7 +8581,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 461b71a417693dc49ab1d1243b68daa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 200
+  cost: 250
   itemName: Head02
   texts: []
 --- !u!114 &2028485594
@@ -9081,7 +9081,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 200
+  m_Text: 250
 --- !u!222 &2124471662
 CanvasRenderer:
   m_ObjectHideFlags: 0
