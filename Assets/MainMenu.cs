@@ -5,6 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    // Don't change this, it's needed for UI skin
+    //#region CustomUISkin
+    //public GUISkin customSkin;
+
+    //void OnGUI()
+    //{
+    //    GUI.skin = customSkin;
+    //}
+
+    //#endregion
+
+
     public ShopItemHandler handler;
 
     // Go to Play Scene

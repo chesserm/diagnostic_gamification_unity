@@ -206,14 +206,14 @@ public class PlaySummary : MonoBehaviour
         Text userDiagnosisText = userDiagnosisTextbox.GetComponent<Text>();
         userDiagnosisText.text = "Your diagnosis: " + CaseInformation.UserDiagnosis;
 
-        if (wasUserCorrect)
-        {
-            userDiagnosisText.color = Color.green;
-        }
-        else
-        {
-            userDiagnosisText.color = Color.red;
-        }
+        //if (wasUserCorrect)
+        //{
+        //    userDiagnosisText.color = Color.green;
+        //}
+        //else
+        //{
+        //    userDiagnosisText.color = Color.red;
+        //}
 
 
 
@@ -228,6 +228,8 @@ public class PlaySummary : MonoBehaviour
     {
         GameObject expertCommentTextBox = GameObject.FindGameObjectWithTag("ExpertComments");
         Text expertCommentsText = expertCommentTextBox.GetComponent<Text>();
+
+        UnityEngine.Debug.Log(CaseInformation.patient.ExpertComments);
 
         expertCommentsText.text = CaseInformation.patient.ExpertComments;
     }

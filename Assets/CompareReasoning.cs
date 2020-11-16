@@ -148,12 +148,12 @@ public class CompareReasoning : MonoBehaviour
         if (CaseInformation.UserReasoning[symptom] == ReasoningState.Correct)
         {
             textComponent.text = "Correct Reasoning";
-            textComponent.color = Color.green;
+            //textComponent.color = Color.green;
         }
         else
         {
             textComponent.text = "Incorrect Reasoning";
-            textComponent.color = Color.red;
+            //textComponent.color = Color.red;
         }
 
         return;
