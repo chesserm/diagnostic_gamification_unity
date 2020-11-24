@@ -43,6 +43,12 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("Statistics");
     }
 
+    // Go to Leaderboard Scene
+    public void GoToLeaderboard()
+    {
+        SceneManager.LoadScene("Leaderboard");
+    }
+
     void Start()
     {
         if (!PlayerPrefs.HasKey("ShopItemHandler"))
