@@ -36,6 +36,8 @@ public class Player : MonoBehaviour
 		get { return PlayerPrefs.GetString("CurrentBlock"); }
 	}
 
+
+
 // Start is called before the first frame update
 void Start()
     {
@@ -52,11 +54,17 @@ void Start()
 		}
 	}
 
+	// Function that is called from PlaySummary when the user has completed diagnosing a case
 	public void CompleteCase(int coins, int xp, char casetype, bool correct)
     {
+		// Update the values of the player based upon rewards from the diagnostic session
 		PlayerPrefs.SetInt("NumCoins", this.NumCoins + coins);
 		PlayerPrefs.SetInt("Experience", this.Experience + xp);
 		PlayerPrefs.SetInt("NextCase", this.NextCase + 1);
+
+		// Update experience level using helper below
+		// This must be called AFTER the Experience value is updated above
+		UpdateExperienceLevel();
 
 		BlockStats CurrentBlock = JsonUtility.FromJson<BlockStats>(this.Block);
 		if (casetype == 'c')
@@ -78,30 +86,131 @@ void Start()
         {
 			string key = "block" + (NextCase / 10);
 			PlayerPrefs.SetString( key, JsonUtility.ToJson(CurrentBlock));
+			
 			UnityEngine.Debug.Log(key);
 			UnityEngine.Debug.Log(PlayerPrefs.GetString(key));
+
 			CurrentBlock = new BlockStats();
         }
 		PlayerPrefs.SetString("CurrentBlock", JsonUtility.ToJson(CurrentBlock));
 	}
 
+
+	// Testing function used to test when cases are complete
 	public void callplayercomplete()
 	{
 		this.CompleteCase(10, 10, 'c', true);
 	}
 
-	//private BlockStats get_blockstats()
-	//{
-	//	//replace X with our api url
-	//	HttpWebRequest request = (HttpWebRequest)WebRequest.Create(String.Format("X?id={0}", blockId));
-	//	HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-	//	StreamReader reader = new StreamReader(response.GetResponseStream());
-	//	string jsonResponse = reader.ReadToEnd();
-	//	BlockStats info = JsonUtility.FromJson<BlockStats>(jsonResponse);
-	//	return info;
-	//}
 
-}
+	// Function to be called when a case is completed to update the player's level
+	private void UpdateExperienceLevel()
+    {
+		int currentExp = PlayerPrefs.GetInt("Experience");
+
+		// The order of these if statements must be exactly as-is for this to work
+		// as it is currently written.
+		if (currentExp < 1000)
+        {
+			// Level 0: Undergrad
+			//  [0, 1,000) exp
+			PlayerPrefs.SetInt("ExpLevel", 0);
+        }
+		else if (currentExp < 3000)
+        {
+			// Level 1: MedStudent
+			//  [1,000, 3,000) exp
+			PlayerPrefs.SetInt("ExpLevel", 1);
+		}
+		else if (currentExp < 7500)
+        {
+			// Level 2: ResidencyPhysician
+			//  [3,000, 7,500) exp
+			PlayerPrefs.SetInt("ExpLevel", 2);
+		}
+		else if (currentExp < 10000)
+        {
+			// Level 3: Physician
+			//  [7,500, 10,000) exp
+			PlayerPrefs.SetInt("ExpLevel", 3);
+		}
+		else
+        {
+			// Level 4 (max level): ExpertSpecialist
+			//  10,000+ exp
+			PlayerPrefs.SetInt("ExpLevel", 4);
+		}
+
+		return;
+    }
+
+
+	// Public function to get the player's level title (as a string)
+	public string GetExperienceLevelString()
+    {
+		int levelNum = PlayerPrefs.GetInt("ExpLevel");
+
+		switch(levelNum)
+        {
+			case 0:
+                {
+					// Level 0: Undergrad
+					//  [0, 1,000) exp
+					return "Undergraduate Student";
+                }
+			case 1:
+				{
+					// Level 1: MedStudent
+					//  [1,000, 3,000) exp
+					return "Medical Student";
+				}
+			case 2:
+				{
+					// Level 2: ResidencyPhysician
+					//  [3,000, 7,500) exp
+					return "Residency Physician";
+				}
+			case 3:
+				{
+					// Level 3: Physician
+					//  [7,500, 10,000) exp
+					return "Physician";
+				}
+			case 4:
+				{
+					// Level 4 (max level): ExpertSpecialist
+					//  10,000+ exp
+					return "Expert Specialist";
+				}
+			default:
+                {
+					return "ERROR GETTING LEVEL TITLE. LEVEL OUT OF RANGE. SEE PLAYER CLASS";
+                }
+		}
+	}
+
+	// Public function to get the player's level number [0 - 4]
+	public int GetExperienceLevelNumber()
+	{
+		return PlayerPrefs.GetInt("ExpLevel");
+	}
+
+
+
+
+
+		//private BlockStats get_blockstats()
+		//{
+		//	//replace X with our api url
+		//	HttpWebRequest request = (HttpWebRequest)WebRequest.Create(String.Format("X?id={0}", blockId));
+		//	HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+		//	StreamReader reader = new StreamReader(response.GetResponseStream());
+		//	string jsonResponse = reader.ReadToEnd();
+		//	BlockStats info = JsonUtility.FromJson<BlockStats>(jsonResponse);
+		//	return info;
+		//}
+
+	}
 
 [System.Serializable]
 public class BlockStats

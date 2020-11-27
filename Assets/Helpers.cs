@@ -39,6 +39,8 @@ namespace HelperNamespace
         Pneumonia,
         CHF
     }
+
+
     #endregion
 
 
@@ -146,45 +148,6 @@ namespace HelperNamespace
 
 
     }
-
-    //public enum CoreState
-    //{
-    //    Menu,
-    //    Stats,
-    //    Shop,
-    //    Play,
-    //    Customize
-    //}
-
-
-    //// Enum to know which screen of the game loop they are on 
-    //public enum PlayState
-    //{
-    //    Initial,
-    //    Main,
-    //    Diagnose,
-    //    SymptomList,
-    //    SymptomInfo,
-    //    Reasoning,
-    //    Summary,
-    //    Back
-    //}
-
-
-    // Enum to determine which symptom is being investigated
-
-
-
-
-    //public enum ItemType
-    //{
-    //    Hat,
-    //    Labcoat,
-    //    Stethescope,
-    //    Mask,
-    //    Shoes,
-    //    Pants
-    //}
 
 
 }
