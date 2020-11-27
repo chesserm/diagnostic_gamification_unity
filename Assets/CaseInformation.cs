@@ -32,6 +32,11 @@ namespace HelperNamespace
 
         // This is used by the PlayMain scene to detect if its the first entry to the PlayMain page
         public static bool isFirstPlayMainVisit = true;
+
+        // This is used by the summary page to determine whether or not to award the player
+        // This avoids a bug where the player is awarded coins everytime the user returns to the summary page from the
+        // reasoning page
+        public static bool hasPlayerBeenAwarded = false;
         #endregion
 
 
@@ -138,6 +143,7 @@ namespace HelperNamespace
 
             isFirstPlayMainVisit = true;
 
+            hasPlayerBeenAwarded = false;
 
             return;
         }

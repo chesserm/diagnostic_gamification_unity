@@ -261,7 +261,8 @@ public class PlaySummary : MonoBehaviour
         wasUserCorrect = CaseInformation.UserDiagnosis == CaseInformation.TrueDiagnosis;
 
 
-        // Assign awards. Do not change order of function calls
+        // Assign awards. 
+        // *********** Do not change order of function calls *********** 
         // DetermineDiagnosisReward() assigns default values for rewards
         // and depends on DetermineDifficultyModifier()
         DetermineDifficultyModifier();
@@ -269,7 +270,13 @@ public class PlaySummary : MonoBehaviour
         DetermineReasoningReward();
 
         // Actually award player (and update PlayerPrefs)
-        AwardPlayer();
+        // but only do so once for this case
+        if (!CaseInformation.hasPlayerBeenAwarded)
+        {
+            AwardPlayer();
+            CaseInformation.hasPlayerBeenAwarded = true;
+        }
+        
 
 
         // Display summary results on screen
