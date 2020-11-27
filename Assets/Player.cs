@@ -27,10 +27,6 @@ public class Player : MonoBehaviour
 	{
 		get { return PlayerPrefs.GetInt("total_correct"); }
 	}
-	string ExpLevel
-	{
-		get { return PlayerPrefs.GetString("ExpLevel"); }
-	}
 	string Block
     {
 		get { return PlayerPrefs.GetString("CurrentBlock"); }
@@ -46,9 +42,9 @@ void Start()
         {
 			PlayerPrefs.SetInt("NumCoins", 0);
 			PlayerPrefs.SetInt("Experience", 0);
+			PlayerPrefs.SetInt("ExpLevel", 0);
 			PlayerPrefs.SetInt("NextCase", 0);
 			PlayerPrefs.SetInt("total_correct", 0);
-			PlayerPrefs.SetString("ExpLevel", "undergrad");
 			BlockStats firstBlock = new BlockStats();
 			PlayerPrefs.SetString("CurrentBlock", JsonUtility.ToJson(firstBlock));
 		}
