@@ -33,6 +33,12 @@ namespace HelperNamespace
         // This is used by the PlayMain scene to detect if its the first entry to the PlayMain page
         public static bool isFirstPlayMainVisit = true;
 
+        // Boolean flags used to track whether or not the user has viewed the Head Exam or Skin Exam
+        // symptoms yet. (normally we check this through reasoning selections, but these symptoms have
+        // no reasoning component)
+        public static bool hasViewedHeadExam = false;
+        public static bool hasViewedSkinExam = false;
+
         // This is used by the summary page to determine whether or not to award the player
         // This avoids a bug where the player is awarded coins everytime the user returns to the summary page from the
         // reasoning page
@@ -143,7 +149,10 @@ namespace HelperNamespace
 
             isFirstPlayMainVisit = true;
 
-            hasPlayerBeenAwarded = false;
+            hasViewedHeadExam = false;
+            hasViewedSkinExam = false;
+
+        hasPlayerBeenAwarded = false;
 
             return;
         }

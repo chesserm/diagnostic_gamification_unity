@@ -204,22 +204,22 @@ public class PlaySummary : MonoBehaviour
 
         GameObject userDiagnosisTextbox = GameObject.FindGameObjectWithTag("UserDiagnosis");
         Text userDiagnosisText = userDiagnosisTextbox.GetComponent<Text>();
-        userDiagnosisText.text = "Your diagnosis: " + CaseInformation.UserDiagnosis;
+        userDiagnosisText.text = "" + CaseInformation.UserDiagnosis;
 
-        //if (wasUserCorrect)
-        //{
-        //    userDiagnosisText.color = Color.green;
-        //}
-        //else
-        //{
-        //    userDiagnosisText.color = Color.red;
-        //}
+        if (wasUserCorrect)
+        {
+            userDiagnosisText.color = Color.green;
+        }
+        else
+        {
+            userDiagnosisText.color = Color.red;
+        }
 
 
 
         GameObject correctDiagnosisTextbox = GameObject.FindGameObjectWithTag("CorrectDiagnosis");
         Text correctDiagnosisText = correctDiagnosisTextbox.GetComponent<Text>();
-        correctDiagnosisText.text = "Correct diagnosis: " + CaseInformation.TrueDiagnosis;
+        correctDiagnosisText.text = "" + CaseInformation.TrueDiagnosis;
     }
 
 
