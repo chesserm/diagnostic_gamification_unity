@@ -34,7 +34,20 @@ public class PlayReasoning : MonoBehaviour
     // Function to continue to Main Play Page after reasoning is selected
     public void ReturnToMainPlay()
     {
+        // Add reasoning choice to dictionary
+        AddUserReasoningSelection();
+
+        // Reset SelectedSymptom before returning to main play screen
+        CaseInformation.SelectedSymptom = SymptomState.Nothing;
+
+        // Return to the main menu
         SceneManager.LoadScene("PlayMain");
+    }
+
+    // Function to return to the symptom data to review the data before selecting reasoning
+    public void ReturnToSymptomData()
+    {
+        SceneManager.LoadScene("PlaySymptomData");
     }
 
 
@@ -182,10 +195,6 @@ public class PlayReasoning : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //*************************** FOR DEBUGGING PURPOSES ONLY ***************************
-        //CaseInformation.SelectedSymptom = SymptomState.Heart;
-
-        //***********************************************************************************
 
         // Establish the references to the UI elements on screen
         SetComponentVariables();
@@ -209,15 +218,10 @@ public class PlayReasoning : MonoBehaviour
     }
 
 
-    // Run this after the button clicks and before the destroying of th e
+    // Run this after the button clicks and before the destroying of the scene
     void OnDestroy()
     {
         
-        // Add reasoning choice to dictionary
-        AddUserReasoningSelection();
-
-
-        // Reset SelectedSymptom before returning to main play screen
-        CaseInformation.SelectedSymptom = SymptomState.Nothing;
+        
     }
 }

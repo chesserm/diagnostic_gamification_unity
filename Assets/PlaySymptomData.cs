@@ -505,6 +505,7 @@ public class PlaySymptomData : MonoBehaviour
     void Start()
     {
         // Check to see if the selected symptom data has been viewed before 
+        // by checking if a reasoning value has been selected for this data
         DetermineIfFirstVisit();
 
         // Check to see if it is one of the smymptoms that will not require reasoning
