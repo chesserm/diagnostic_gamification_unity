@@ -11,23 +11,23 @@ using System.Runtime.Serialization;
 
 public class Player : MonoBehaviour
 {
-	int NumCoins
+	public int NumCoins
 	{
 		get { return PlayerPrefs.GetInt("NumCoins"); }
 	}
-	int Experience
+	public int Experience
 	{
 		get { return PlayerPrefs.GetInt("Experience"); }
 	}
-	int NextCase
+	public int NextCase
 	{
 		get { return PlayerPrefs.GetInt("NextCase"); }
 	}
-	int total_correct
+	public int total_correct
 	{
 		get { return PlayerPrefs.GetInt("total_correct"); }
 	}
-	string Block
+	public string Block
     {
 		get { return PlayerPrefs.GetString("CurrentBlock"); }
 	}
@@ -99,8 +99,11 @@ void Start()
 	}
 
 
-	// Function to be called when a case is completed to update the player's level
-	private void UpdateExperienceLevel()
+	// Functions dealing with the implementation of the level system
+    #region ExperienceSystem 
+
+    // Function to be called when a case is completed to update the player's level
+    private void UpdateExperienceLevel()
     {
 		int currentExp = PlayerPrefs.GetInt("Experience");
 
@@ -192,22 +195,69 @@ void Start()
 		return PlayerPrefs.GetInt("ExpLevel");
 	}
 
+	// Public function to get the minimum amount of experience for a level
+	// This is used for experience-related progress bars
+	public int GetExperienceToNextLevel()
+    {
+		int levelNum = PlayerPrefs.GetInt("ExpLevel");
+		int currentExp = Experience;
 
-
-
-
-		//private BlockStats get_blockstats()
-		//{
-		//	//replace X with our api url
-		//	HttpWebRequest request = (HttpWebRequest)WebRequest.Create(String.Format("X?id={0}", blockId));
-		//	HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-		//	StreamReader reader = new StreamReader(response.GetResponseStream());
-		//	string jsonResponse = reader.ReadToEnd();
-		//	BlockStats info = JsonUtility.FromJson<BlockStats>(jsonResponse);
-		//	return info;
-		//}
-
+		switch (levelNum)
+		{
+			case 0:
+				{
+					// Level 0: Undergrad
+					//  [0, 1,000) exp
+					return 1000 - currentExp;
+				}
+			case 1:
+				{
+					// Level 1: MedStudent
+					//  [1,000, 3,000) exp
+					return 3000 - currentExp;
+				}
+			case 2:
+				{
+					// Level 2: ResidencyPhysician
+					//  [3,000, 7,500) exp
+					return 7500 - currentExp;
+				}
+			case 3:
+				{
+					// Level 3: Physician
+					//  [7,500, 10,000) exp
+					return 10000 - currentExp;
+				}
+			case 4:
+				{
+					// Level 4 (max level): ExpertSpecialist
+					//  10,000+ exp
+					return 0;
+				}
+			default:
+				{
+					return -1;
+				}
+		}
 	}
+
+	#endregion
+
+
+
+
+	//private BlockStats get_blockstats()
+	//{
+	//	//replace X with our api url
+	//	HttpWebRequest request = (HttpWebRequest)WebRequest.Create(String.Format("X?id={0}", blockId));
+	//	HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+	//	StreamReader reader = new StreamReader(response.GetResponseStream());
+	//	string jsonResponse = reader.ReadToEnd();
+	//	BlockStats info = JsonUtility.FromJson<BlockStats>(jsonResponse);
+	//	return info;
+	//}
+
+}
 
 [System.Serializable]
 public class BlockStats
