@@ -20,6 +20,7 @@ public class PlaySymptomData : MonoBehaviour
     Text DataText;
 
 
+    // Button click event handlers
     #region EventHandlers
 
     // Function to Continue to Reasoning Page
@@ -41,7 +42,8 @@ public class PlaySymptomData : MonoBehaviour
 
     #endregion
 
-
+    // All private helper functions
+    // This includes sub regions
     #region HelperFunctions
 
     // Check to see if the selected symptom data has been viewed before 
@@ -97,6 +99,26 @@ public class PlaySymptomData : MonoBehaviour
             // Disable X-Ray Image
             XRayImageObject.SetActive(false);
 
+        }
+
+        return;
+    }
+
+    // Function to set the text of the continue button based on current symptom
+    // This provides more clarity to the user so they know where they will be taken
+    private void DetermineContinueButtonText()
+    {
+        GameObject button = GameObject.Find("ContinueButton");
+        
+        // Button should continue to reasoning only if it is the first  view of the
+        // data and the symptom being investigated does not require reasoning
+        if (isFirstViewOfData && !doesSymptomSkipReasoning)
+        {
+            button.GetComponentInChildren<Text>().text = "Continue to Reasoning Selection";
+        }
+        else
+        {
+            button.GetComponentInChildren<Text>().text = "Finish Reviewing Exam Results";
         }
 
         return;
@@ -424,11 +446,6 @@ public class PlaySymptomData : MonoBehaviour
     #endregion
 
 
-
-
-
-
-
     #endregion
 
 
@@ -510,6 +527,12 @@ public class PlaySymptomData : MonoBehaviour
 
         // Check to see if it is one of the smymptoms that will not require reasoning
         isReasoningSkipped();
+
+        // Determine what text to display on the continue button. This provides
+        // more clarity to the user on where they will be taken next.
+        // This must be called in Start() AFTER DetermineIfFirstVisit() and
+        // isReasoningSkipped() due to the class member variable usage
+        DetermineContinueButtonText();
 
         // Assign the GameObject references to the UI element
         XRayImageObject = GameObject.FindGameObjectWithTag("XRayImage");

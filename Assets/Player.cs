@@ -185,6 +185,7 @@ void Start()
 		}
 	}
 
+
 	// Public function to get the player's level number [0 - 4]
 	public int GetExperienceLevelNumber()
 	{
