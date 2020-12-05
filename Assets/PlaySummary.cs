@@ -212,7 +212,13 @@ public class PlaySummary : MonoBehaviour
         }
         else
         {
-            userDiagnosisText.color = Color.red;
+            // The default red color is quite bright, so we are instead using 
+            // a hexidecimal code for red
+            string redHexColor = "#C03232";
+            Color unityColorObject;
+            ColorUtility.TryParseHtmlString(redHexColor, out unityColorObject);
+
+            userDiagnosisText.color = unityColorObject;
         }
 
 

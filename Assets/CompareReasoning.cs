@@ -148,12 +148,21 @@ public class CompareReasoning : MonoBehaviour
         if (CaseInformation.UserReasoning[symptom] == ReasoningState.Correct)
         {
             textComponent.text = "Correct Reasoning";
+
+            // Set color to green using the default green color
             textComponent.color = Color.green;
         }
         else
         {
             textComponent.text = "Incorrect Reasoning";
-            textComponent.color = Color.red;
+
+            // The default red color is quite bright, so we are instead using 
+            // a hexidecimal code for red
+            string redHexColor = "#C03232";
+            Color unityColorObject;
+            ColorUtility.TryParseHtmlString(redHexColor, out unityColorObject);
+
+            textComponent.color = unityColorObject;
         }
 
         return;
