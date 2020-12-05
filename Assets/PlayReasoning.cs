@@ -16,11 +16,15 @@ public class PlayReasoning : MonoBehaviour
     // Variable that tracks selected button
     private int SelectedButtonIndex;
 
+    // Boolean flag to know if the user can confirm reasoning & continue
+    private bool canContinue = false;
+
     // Variables we will use to find/point to gameobjects
     GameObject ReasoningButton0;
     GameObject ReasoningButton1;
     GameObject ReasoningButton2;
     GameObject ReasoningButton3;
+    GameObject ConfirmationButton;
 
     Text ReasoningButton0Text;
     Text ReasoningButton1Text;
@@ -32,7 +36,8 @@ public class PlayReasoning : MonoBehaviour
     #region EventHandlers
 
     // Function to continue to Main Play Page after reasoning is selected
-    public void ReturnToMainPlay()
+    // This should NOT be added through the Unity UI but called by ConfirmReasoningAndContinue()
+    private void ReturnToMainPlay()
     {
         // Add reasoning choice to dictionary
         AddUserReasoningSelection();
@@ -42,7 +47,24 @@ public class PlayReasoning : MonoBehaviour
 
         // Return to the main menu
         SceneManager.LoadScene("PlayMain");
+
+        return;
     }
+
+
+    // Event handler for the confirm reasoning and continue button
+    public void ConfirmReasoningAndContinue()
+    {
+        // Check if the user has selected a resoning choice
+        // This gives them a chance to confirm their choice
+        if (canContinue)
+        {
+            ReturnToMainPlay();
+        }
+
+        return;
+    }
+
 
     // Function to return to the symptom data to review the data before selecting reasoning
     public void ReturnToSymptomData()
@@ -56,6 +78,18 @@ public class PlayReasoning : MonoBehaviour
     {
         // Setting selected index
         SelectedButtonIndex = 0;
+
+        // Set the text of this button (index 0) to white and the text of all other buttons to grey
+        ReasoningSelectionVisualFeedback(0);
+
+        // Since a reasoning selection has been made, enable the confirmation
+        // button (if it hasn't been enabled yet)
+        if (!canContinue)
+        {
+            EnableConfirmReasoningButton();
+        }
+
+        return;
     }
 
     // Event Handler for the reasoning button #2 (index 1)
@@ -63,6 +97,18 @@ public class PlayReasoning : MonoBehaviour
     {
         // Setting Selected Index
         SelectedButtonIndex = 1;
+
+        // Set the text of this button (index 1) to white and the text of all other buttons to grey
+        ReasoningSelectionVisualFeedback(1);
+
+        // Since a reasoning selection has been made, enable the confirmation
+        // button (if it hasn't been enabled yet)
+        if (!canContinue)
+        {
+            EnableConfirmReasoningButton();
+        }
+
+        return;
     }
 
     // Event Handler for the reasoning button #3 (index 2)
@@ -70,6 +116,18 @@ public class PlayReasoning : MonoBehaviour
     {
         // Setting Selected Index
         SelectedButtonIndex = 2;
+
+        // Set the text of this button (index 2) to white and the text of all other buttons to grey
+        ReasoningSelectionVisualFeedback(2);
+
+        // Since a reasoning selection has been made, enable the confirmation
+        // button (if it hasn't been enabled yet)
+        if (!canContinue)
+        {
+            EnableConfirmReasoningButton();
+        }
+
+        return;
     }
 
     // Event Handler for the reasoning button #4 (index 3)
@@ -77,6 +135,18 @@ public class PlayReasoning : MonoBehaviour
     {
         // Setting Selected Index
         SelectedButtonIndex = 3;
+
+        // Set the text of this button (index 3) to white and the text of all other buttons to grey
+        ReasoningSelectionVisualFeedback(3);
+
+        // Since a reasoning selection has been made, enable the confirmation
+        // button (if it hasn't been enabled yet)
+        if (!canContinue)
+        {
+            EnableConfirmReasoningButton();
+        }
+
+        return;
     }
 
     #endregion
@@ -102,6 +172,9 @@ public class PlayReasoning : MonoBehaviour
         // Button 4 (index 3 in our code)
         ReasoningButton3 = GameObject.FindGameObjectWithTag("ReasoningButton4");
         ReasoningButton3Text = ReasoningButton3.GetComponent<Text>();
+
+        // ConfirmationButton
+        ConfirmationButton = GameObject.Find("ConfirmationButton");
 
         return;
     }
@@ -185,6 +258,104 @@ public class PlayReasoning : MonoBehaviour
         {
             CaseInformation.UserReasoning[CaseInformation.SelectedSymptom] = ReasoningState.Incorrect3;
         }
+        return;
+    }
+
+
+    // Helper function to set the color of a button's text
+    // Source: https://stackoverflow.com/questions/46962565/how-to-convert-hex-to-colorrgba-with-tryparsehtmlstring
+    private void SetButtonTextColor(GameObject button, string hexColor)
+    {
+        // Create color object
+        Color unityColorObject;
+        ColorUtility.TryParseHtmlString(hexColor, out unityColorObject);
+
+        // Change color of text component of "Text" child gameobject 
+        // source: https://forum.unity.com/threads/change-button-text.424817/
+        button.GetComponentInChildren<Text>().color = unityColorObject;
+
+        return;
+    }
+
+
+    // Enable the confirm reasoning button and set its text to white
+    private void EnableConfirmReasoningButton()
+    {
+        // Set color of button's text to white
+        string whiteHexColor = "#FFFFFF";
+
+        SetButtonTextColor(ConfirmationButton, whiteHexColor);
+
+
+        // Set boolean flag to allow confirmation & continuing to true
+        canContinue = true;
+
+        return;
+    }
+
+
+    // This function will set selectedButtonNumber's text to white and all other options to grey
+    // for visual feedback on the selected option
+    private void ReasoningSelectionVisualFeedback(int selectedButtonNumber)
+    {
+        string whiteHexColor = "#FFFFFF";
+        string greyeHexColor = "#797979";
+
+        // Determine what button was selected in range [1,4]
+        switch (selectedButtonNumber)
+        {
+            case 0:
+                {
+                    // Setting Button1 to white
+                    SetButtonTextColor(ReasoningButton0, whiteHexColor);
+
+                    // Setting everything else to grey
+                    SetButtonTextColor(ReasoningButton1, greyeHexColor);
+                    SetButtonTextColor(ReasoningButton2, greyeHexColor);
+                    SetButtonTextColor(ReasoningButton3, greyeHexColor);
+
+                    break;
+                }
+            case 1:
+                {
+                    // Setting Button2 to white
+                    SetButtonTextColor(ReasoningButton1, whiteHexColor);
+
+                    // Setting everything else to grey
+                    SetButtonTextColor(ReasoningButton0, greyeHexColor);
+                    SetButtonTextColor(ReasoningButton2, greyeHexColor);
+                    SetButtonTextColor(ReasoningButton3, greyeHexColor);
+                    break;
+                }
+            case 2:
+                {
+                    // Setting Button3 to white
+                    SetButtonTextColor(ReasoningButton2, whiteHexColor);
+
+                    // Setting everything else to grey
+                    SetButtonTextColor(ReasoningButton0, greyeHexColor);
+                    SetButtonTextColor(ReasoningButton1, greyeHexColor);
+                    SetButtonTextColor(ReasoningButton3, greyeHexColor);
+                    break;
+                }
+            case 3:
+                {
+                    // Setting Button4 to white
+                    SetButtonTextColor(ReasoningButton3, whiteHexColor);
+
+                    // Setting everything else to grey
+                    SetButtonTextColor(ReasoningButton0, greyeHexColor);
+                    SetButtonTextColor(ReasoningButton1, greyeHexColor);
+                    SetButtonTextColor(ReasoningButton2, greyeHexColor);
+                    break;
+                }
+            default:
+                {
+                    UnityEngine.Debug.Log("ERROR: Incorrect button num passed to ReasoningSelectionVisualFeedback");
+                    break;
+                }
+        }
+
         return;
     }
 
