@@ -34,9 +34,9 @@ public class MainMenu : MonoBehaviour
     }
 
     // Go to Leaderboard Scene
-    public void GoToLeaderboard()
+    public void GoToHelp()
     {
-        SceneManager.LoadScene("Leaderboard");
+        SceneManager.LoadScene("Help");
     }
 
     void Start()

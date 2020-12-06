@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Leaderboard : MonoBehaviour
+public class Help : MonoBehaviour
 {
     // Button Handler to return to main menu
     public void ReturnToMainMenu()

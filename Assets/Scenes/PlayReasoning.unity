@@ -224,7 +224,7 @@ RectTransform:
   m_GameObject: {fileID: 76395277}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9355314, y: 0.9355314, z: 0.9355314}
   m_Children:
   - {fileID: 1390587155}
   m_Father: {fileID: 1132502517}
@@ -232,7 +232,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.12451, y: -73.501}
+  m_AnchoredPosition: {x: -0.15515003, y: -65}
   m_SizeDelta: {x: 679.751, y: 731.66077}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &115824096
@@ -843,8 +843,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -0.12461, y: 76.8}
-  m_SizeDelta: {x: 679.75116, y: 99.28964}
+  m_AnchoredPosition: {x: 0, y: 63}
+  m_SizeDelta: {x: 575.98883, y: 96.81442}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1127537083
 MonoBehaviour:
@@ -1014,7 +1014,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 720, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -1324,10 +1324,10 @@ RectTransform:
   m_Father: {fileID: 1132502517}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -8.0756, y: -213}
-  m_SizeDelta: {x: -24.346985, y: 259.4549}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -167}
+  m_SizeDelta: {x: 695.653, y: 170.00458}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1488867110
 MonoBehaviour:
@@ -1350,7 +1350,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: eefdcb53394ea4c67896091ca88855c8, type: 3}
-    m_FontSize: 48
+    m_FontSize: 36
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -1361,7 +1361,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Select a reasoning to indicate how the symptom data impacted your suspected
+  m_Text: Select a reason to indicate how the symptom data impacted your suspected
     diagnosis
 --- !u!222 &1488867111
 CanvasRenderer:
@@ -1382,6 +1382,7 @@ GameObject:
   - component: {fileID: 1491790102}
   - component: {fileID: 1491790101}
   - component: {fileID: 1491790100}
+  - component: {fileID: 1491790103}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1424,7 +1425,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 301.0376
+  orthographic size: 540
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1459,6 +1460,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1491790103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1491790099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 256c44c591e62b84a902118b2782060e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1546794145
 GameObject:
   m_ObjectHideFlags: 0
@@ -1769,7 +1782,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 90, y: -30}
+  m_AnchoredPosition: {x: 101, y: -39}
   m_SizeDelta: {x: 180, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1958609121
