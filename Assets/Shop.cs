@@ -24,14 +24,13 @@ public class Shop : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         // Load in handler from playerprefs
         string strHandler = PlayerPrefs.GetString("ShopItemHandler");
         handler = JsonUtility.FromJson<ShopItemHandler>(strHandler);
-       
-        
+
+
         // Load in coin amount from playerprefs
         if (PlayerPrefs.HasKey("NumCoins"))
         {

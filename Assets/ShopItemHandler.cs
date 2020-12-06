@@ -14,6 +14,9 @@ public class ShopItemHandler
     public bool Body03;
     public bool Body04;
     public bool Body05;
+    public bool Body06;
+    public bool Body07;
+    public bool Body08;
     public bool Legs01;
     public bool Legs02;
     public bool Legs03;
@@ -64,6 +67,18 @@ public class ShopItemHandler
         else if (itemName == "Body05")
         {
             Body05 = true;
+        }
+        else if (itemName == "Body06")
+        {
+            Body06 = true;
+        }
+        else if (itemName == "Body07")
+        {
+            Body07 = true;
+        }
+        else if (itemName == "Body08")
+        {
+            Body08 = true;
         }
         else if (itemName == "Legs01")
         {
@@ -156,6 +171,18 @@ public class ShopItemHandler
         else if (itemName == "Body05")
         {
             return Body05;
+        }
+        else if (itemName == "Body06")
+        {
+            return Body06;
+        }
+        else if (itemName == "Body07")
+        {
+            return Body07;
+        }
+        else if (itemName == "Body08")
+        {
+            return Body08;
         }
         else if (itemName == "Legs01")
         {
