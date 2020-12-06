@@ -24,14 +24,13 @@ public class Shop : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         // Load in handler from playerprefs
         string strHandler = PlayerPrefs.GetString("ShopItemHandler");
         handler = JsonUtility.FromJson<ShopItemHandler>(strHandler);
-       
-        
+
+
         // Load in coin amount from playerprefs
         if (PlayerPrefs.HasKey("NumCoins"))
         {
@@ -44,6 +43,25 @@ public class Shop : MonoBehaviour
         }
         coinsText.text = coins.ToString();
         Debug.Log(coins);
+    }
+
+    public void Start()
+    {
+
+        // Establish reference to Player object 
+        // (stateless class/script connected to the scene's container gameobject)
+        GameObject containerObject = GameObject.Find("ScreenContainer");
+        Player player = containerObject.GetComponent<Player>();
+
+        // Get the Experience Title object
+        GameObject currentLevelTitle = GameObject.Find("CurrentLevelText");
+
+        // Get the current experience title from the player class
+        string currentTitle = player.GetExperienceLevelString();
+
+        currentLevelTitle.GetComponent<Text>().text = "Current Level: " + currentTitle;
+
+        return;
     }
 
     void OnDestroy()

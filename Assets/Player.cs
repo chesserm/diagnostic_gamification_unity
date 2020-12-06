@@ -188,6 +188,48 @@ void Start()
 		}
 	}
 
+	// Returns title for level based on number
+	// this differs from the above function by not using the player's level implicitly
+	public string GetTitleForItem(int levelNum)
+	{
+		switch (levelNum)
+		{
+			case 0:
+				{
+					// Level 0: Undergrad
+					//  [0, 1,000) exp
+					return "Undergraduate Student";
+				}
+			case 1:
+				{
+					// Level 1: MedStudent
+					//  [1,000, 3,000) exp
+					return "Medical Student";
+				}
+			case 2:
+				{
+					// Level 2: ResidencyPhysician
+					//  [3,000, 7,500) exp
+					return "Residency Physician";
+				}
+			case 3:
+				{
+					// Level 3: Physician
+					//  [7,500, 10,000) exp
+					return "Physician";
+				}
+			case 4:
+				{
+					// Level 4 (max level): ExpertSpecialist
+					//  10,000+ exp
+					return "Expert Specialist";
+				}
+			default:
+				{
+					return "ERROR GETTING LEVEL TITLE. LEVEL OUT OF RANGE. SEE PLAYER CLASS";
+				}
+		}
+	}
 
 	// Public function to get the player's level number [0 - 4]
 	public int GetExperienceLevelNumber()

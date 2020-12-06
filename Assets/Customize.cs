@@ -35,7 +35,7 @@ public class Customize : MonoBehaviour
         headoptions = new List<bool>(new bool[] { handler.Head01, handler.Head02 });
         legoptions = new List<bool>(new bool[] { handler.Legs01, handler.Legs02, handler.Legs03, handler.Legs04, handler.Legs05});
         faceoptions = new List<bool>(new bool[] { handler.Face01, handler.Face02, handler.Face03, handler.Face04, handler.Face05 });
-        bodyoptions = new List<bool>(new bool[] { handler.Body01, handler.Body02, handler.Body03, handler.Body04, handler.Body05 });
+        bodyoptions = new List<bool>(new bool[] { handler.Body01, handler.Body02, handler.Body03, handler.Body04, handler.Body05, handler.Body08, handler.Body07, handler.Body08 });
 
     }
 
