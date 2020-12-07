@@ -35,7 +35,7 @@ public class Customize : MonoBehaviour
         headoptions = new List<bool>(new bool[] { handler.Head01, handler.Head02 });
         legoptions = new List<bool>(new bool[] { handler.Legs01, handler.Legs02, handler.Legs03, handler.Legs04, handler.Legs05});
         faceoptions = new List<bool>(new bool[] { handler.Face01, handler.Face02, handler.Face03, handler.Face04, handler.Face05 });
-        bodyoptions = new List<bool>(new bool[] { handler.Body01, handler.Body02, handler.Body03, handler.Body04, handler.Body05, handler.Body08, handler.Body07, handler.Body08 });
+        bodyoptions = new List<bool>(new bool[] { handler.Body01, handler.Body02, handler.Body03, handler.Body04, handler.Body05, handler.Body06, handler.Body07, handler.Body08 });
 
     }
 
@@ -199,6 +199,30 @@ public class Customize : MonoBehaviour
                 {
                     string path = "Animations/bodies/body05/body05_0";
                     anim.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController> (path);
+
+                    //UnityEngine.Debug.Log(anim.runtimeAnimatorController);
+                    break;
+                }
+            case 6:
+                {
+                    string path = "Animations/bodies/body06/body06";
+                    anim.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>(path);
+
+                    //UnityEngine.Debug.Log(anim.runtimeAnimatorController);
+                    break;
+                }
+            case 7:
+                {
+                    string path = "Animations/bodies/body07/body07";
+                    anim.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>(path);
+
+                    //UnityEngine.Debug.Log(anim.runtimeAnimatorController);
+                    break;
+                }
+            case 8:
+                {
+                    string path = "Animations/bodies/body08/body08";
+                    anim.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>(path);
 
                     //UnityEngine.Debug.Log(anim.runtimeAnimatorController);
                     break;
