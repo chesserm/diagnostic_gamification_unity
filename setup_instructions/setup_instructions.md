@@ -31,6 +31,7 @@ Please check each scene by doing the following:
 3. Click on the "Game" tab at the top of the screen.
 4. Compare the previewed screen with the image file that has the same name as the scene in this repo at `/setup_instructions/scene_images/`.
 5. If the scene preview in the "game" tab of the Unity preview differs from the image, please do the following:
+    0. NOTE: For the PlayMain scene, if the patient avatar looks different, that is fine and not an issue.
     1. Click on the "scene" tab at the top of the Unity UI to bring you to the scene editor
     2. Expand the hierarchy of GameObject assets in the "Hierarchy" panel of the Unity UI
         - Try not to expand buttons (the naming of buttons should be clear, but in case they are not, buttons should only have a "Text" child object in the hierarchy)
